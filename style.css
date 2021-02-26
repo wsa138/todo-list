@@ -1,0 +1,59 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1rem 0 1rem;
+    border-bottom: 2px solid;
+    background-color: rgb(223, 0, 0);
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: .2rem 0 .2rem 0;
+}
+
+nav {
+    background-color: rgb(221, 221, 221);
+    width: 25rem;
+    height: 100vh;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: .5rem 0 0 0;
+}
+
+li {
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding: 0 0 .8rem 3rem;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#listTitle {
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 0;
+    text-align: center;
+}
+
+hr {
+    size: 4px;
+    width: 100%;
+    padding: 0;
+}
