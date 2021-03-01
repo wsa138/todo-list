@@ -9,15 +9,11 @@ dateHeader.innerHTML = `${formattedDate}`
 // Projects menu element.
 const projectsMenu = document.getElementById('projects-menu');
 
-// Array containing all the projects, default and created.
+// Array containing all the projects created and saved to storage.
 const projectsArr = [];
-
-// Create default project "All Projects".
-const allProjects = projectFactory('All Projects')
-projectsArr.push(allProjects);
-console.groupCollapsed(allProjects.newEle)
 
 // Iterate through allProjects and create DOM elements.
 projectsArr.forEach(function(ele) {
     createProjectDom(ele.newEle, projectsMenu);
 })
+
