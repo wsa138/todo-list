@@ -1,7 +1,12 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
+import { testAddProject } from './projects.js'
 
-const todaysDate = new Date()
-const formattedDate = format(todaysDate, 'MM-dd-yyyy')
+// Set the current date at the top of the page.
+const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
+const dateHeader = document.getElementById('date')
+dateHeader.innerHTML = `${formattedDate}`
 
-console.log(todaysDate); 
-console.log(formattedDate)
+// Create default project "All Projects".
+
+let prt = document.getElementById("projects-list");
+testAddProject('Test Project', prt)
