@@ -39,6 +39,10 @@ li {
     padding: 0 0 .8rem 3rem;
 }
 
+#addProject {
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
