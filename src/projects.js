@@ -8,13 +8,21 @@ const projectFactory = (name) => {
     return { name, newEle };
 }
 
-const createProjectDom = (ele, parent) => {
-    parent.appendChild(ele);
+
+// Function takes an array, promps for input, and stores the project in array.
+const takeProjectInput = (holdingArr) => {
+    let projectName = prompt('Enter project name');
+    let newProject = projectFactory(projectName);
+    holdingArr.push(newProject)
+    console.log(holdingArr);
 }
 
-const takeProjectInput = () => {
-    
+// Takes an array of project objects and creates an element appended to parent. 
+const createProjectsMenu = (array, parent) => {
+    array.forEach(function(obj) {
+        parent.appendChild(obj.newEle);
+    })
 }
 
 
-export { projectFactory }
+export { projectFactory, takeProjectInput, createProjectsMenu }

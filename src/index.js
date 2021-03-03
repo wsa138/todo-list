@@ -7,16 +7,14 @@ const dateHeader = document.getElementById('date')
 dateHeader.innerHTML = `${formattedDate}`
 
 // Array containing all the projects created and saved to storage.
-const projectsArr = [];
+let projectsArr = []
 
+// Projects menu element.
+const projectsMenu = document.getElementById("projects-menu")
 
-
-
-// Event listener for add project button.
+// Event listener for add project button, creats, adds and displays new projects.
 const addProject = document.getElementById('addProject')
 addProject.addEventListener("click", function() {
-    console.log('Clicked "Add Project"');
-    alert("adding new project")
-    
+    projects.takeProjectInput(projectsArr);
+    projects.createProjectsMenu(projectsArr, projectsMenu);
 })
-
