@@ -6,6 +6,7 @@ const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
 const dateHeader = document.getElementById('date')
 dateHeader.innerHTML = `${formattedDate}`
 
+
 // Array containing all the projects created and saved to storage.
 let projectsArr = []
 
@@ -18,3 +19,5 @@ addProject.addEventListener("click", function() {
     projects.takeProjectInput(projectsArr);
     projects.createProjectsMenu(projectsArr, projectsMenu);
 })
+
+

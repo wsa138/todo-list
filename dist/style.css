@@ -88,17 +88,39 @@ label {
     background-color: white;
     border-radius: 4px;
     text-align: center;
+    position: relative;
 }
 
 #blueprint {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     margin-top: 2rem;
 }
 
-#submit-btn {
-    width: 2rem;
+.submit-btn {
+    background: #a20000;
+    color: white;
+    border-style: outset;
+    border-color: #c24e4e;
     height: 2rem;
-    background-color: blue;
+    width: 5rem;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+    cursor: pointer;
+}
+
+input {
+    width: 50%;
+    display: block;
+    margin: 1rem auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: .5rem;
+    font-size: 2rem;
+    transform: rotate(45deg);
+    cursor: pointer;
 }
