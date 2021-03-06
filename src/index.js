@@ -24,3 +24,12 @@ let close = document.querySelector('.close-btn');
 close.addEventListener('click', function() {
     modal.style.display = 'none';
 })
+// Submit button event sets entered name to variable. 
+let newProject = '';
+let submit = document.querySelector('.submit-btn');
+let newProjectInput = document.getElementById('newProject');
+submit.addEventListener('click', function(e) {
+    e.preventDefault();
+    newProject = newProjectInput.value;
+    console.log(newProject)
+})

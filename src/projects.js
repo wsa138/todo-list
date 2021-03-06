@@ -9,10 +9,8 @@ const projectFactory = (name) => {
 }
 
 
-// Function takes an array, promps for input, and stores the project in array.
-const takeProjectInput = (holdingArr) => {
-    let projectName = prompt('Enter project name');
-    let newProject = projectFactory(projectName);
+// Stores a project name in the project array.
+const takeProjectInput = (projectName, holdingArr) => {
     holdingArr.push(newProject)
     console.log(holdingArr);
 }
