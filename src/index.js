@@ -13,11 +13,14 @@ let projectsArr = []
 // Projects menu element.
 const projectsMenu = document.getElementById("projects-menu")
 
-// Event listener for add project button, creats, adds and displays new projects.
-const addProject = document.getElementById('addProject')
-addProject.addEventListener("click", function() {
-    projects.takeProjectInput(projectsArr);
-    projects.createProjectsMenu(projectsArr, projectsMenu);
+// Add project click event brings up modal.
+let addProject = document.getElementById('addProject')
+let modal = document.querySelector('.bg-modal');
+addProject.addEventListener('click', function() {
+    modal.style.display = 'flex';
+});
+// X button click event closes modal.
+let close = document.querySelector('.close-btn');
+close.addEventListener('click', function() {
+    modal.style.display = 'none';
 })
-
-
