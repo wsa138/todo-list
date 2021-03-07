@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import * as projects from './projects.js'
+import { addNewProject } from './projects.js'
 
 // Set the current date at the top of the page.
 const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
@@ -34,11 +34,8 @@ let submit = document.querySelector('.submit-btn');
 let newProjectInput = document.getElementById('newProject');
 submit.addEventListener('click', function(e) {
     e.preventDefault();
-    newProject = projects.projectFactory(newProjectInput.value);
-    projectsArr.push(newProject)
+    addNewProject(newProjectInput.value, projectsArr, projectsMenu);
     displayNone(modal);
-    console.log(projectsArr);
-    projects.createProjectsMenu(projectsArr, projectsMenu);
 })
 
 

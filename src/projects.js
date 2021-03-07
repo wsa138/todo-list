@@ -8,6 +8,11 @@ const projectFactory = (name) => {
     return { name, newEle };
 }
 
+// Function takes project object and pushes it to a project array.
+const pushProject = (projObj, array) => {
+    array.push(projObj);
+}
+
 // Takes an array of project objects and creates an element appended to parent. 
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
@@ -15,5 +20,12 @@ const createProjectsMenu = (array, parent) => {
     })
 }
 
+// Function takes necessary input to create
+const addNewProject = (name, array, parent) => {
+    let projObj = projectFactory(name);
+    pushProject(projObj, array);
+    createProjectsMenu(array, parent);
+}
 
-export { projectFactory, createProjectsMenu }
+
+export { addNewProject }
