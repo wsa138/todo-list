@@ -34,9 +34,11 @@ let submit = document.querySelector('.submit-btn');
 let newProjectInput = document.getElementById('newProject');
 submit.addEventListener('click', function(e) {
     e.preventDefault();
-    newProject = newProjectInput.value;
-    console.log(newProject)
+    newProject = projects.projectFactory(newProjectInput.value);
+    projectsArr.push(newProject)
     displayNone(modal);
+    console.log(projectsArr);
+    projects.createProjectsMenu(projectsArr, projectsMenu);
 })
 
 

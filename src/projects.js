@@ -8,12 +8,6 @@ const projectFactory = (name) => {
     return { name, newEle };
 }
 
-
-// Stores a project name in the project array.
-const takeProjectInput = (projectName, holdingArr) => {
-    holdingArr.push(newProject)
-}
-
 // Takes an array of project objects and creates an element appended to parent. 
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
@@ -22,4 +16,4 @@ const createProjectsMenu = (array, parent) => {
 }
 
 
-export { projectFactory, takeProjectInput, createProjectsMenu }
+export { projectFactory, createProjectsMenu }
