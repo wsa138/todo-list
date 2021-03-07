@@ -12,7 +12,6 @@ const projectFactory = (name) => {
 // Stores a project name in the project array.
 const takeProjectInput = (projectName, holdingArr) => {
     holdingArr.push(newProject)
-    console.log(holdingArr);
 }
 
 // Takes an array of project objects and creates an element appended to parent. 

@@ -10,20 +10,24 @@ dateHeader.innerHTML = `${formattedDate}`
 // Array containing all the projects created and saved to storage.
 let projectsArr = []
 
+
 // Projects menu element.
 const projectsMenu = document.getElementById("projects-menu")
+
 
 // Add project click event brings up modal.
 let addProject = document.getElementById('addProject')
 let modal = document.querySelector('.bg-modal');
 addProject.addEventListener('click', function() {
-    modal.style.display = 'flex';
+    changeDisplay(modal, 'flex');
 });
+
 // X button click event closes modal.
 let close = document.querySelector('.close-btn');
 close.addEventListener('click', function() {
-    modal.style.display = 'none';
+    displayNone(modal);
 })
+
 // Submit button event sets entered name to variable. 
 let newProject = '';
 let submit = document.querySelector('.submit-btn');
@@ -32,4 +36,16 @@ submit.addEventListener('click', function(e) {
     e.preventDefault();
     newProject = newProjectInput.value;
     console.log(newProject)
+    displayNone(modal);
 })
+
+
+// Function changes an elements display value to 'none'.
+const displayNone = (element) => {
+    element.style.display = 'none';
+}
+
+// Function changes an elements display value to provided value.
+const changeDisplay = (element, display) => {
+    element.style.display = display;
+}
