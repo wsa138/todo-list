@@ -4,7 +4,6 @@ html, body {
     width: 100%;
 }
 
-
 header {
     display: flex;
     justify-content: space-between;
@@ -131,4 +130,15 @@ input {
     font-size: 2rem;
     transform: rotate(45deg);
     cursor: pointer;
+}
+
+nav {
+    background-color: red;
+}
+header {
+    background-color: blue;
+}
+
+section {
+    background-color: yellow;
 }
