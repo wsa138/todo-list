@@ -85,7 +85,7 @@ label {
     font-size: 3rem;
 }
 
-.bg-modal {
+.projects-modal {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -139,7 +139,20 @@ input {
     cursor: pointer;
 }
 
-#tasks {
-    background-color: yellow;
+#tasks-section {
+    background-color: rgb(187, 187, 186);
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#addTaskBtn {
+    font-size: 1.5rem;
+    color: rgb(56, 56, 56);
+    border: solid;
+    height: 2rem;
+    width: 100%;
+    text-align: center;
+    margin-top: .2rem;
+    cursor: pointer;
 }
