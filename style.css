@@ -4,7 +4,14 @@ html, body {
     width: 100%;
 }
 
+#content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 header {
+    flex-basis: auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -132,13 +139,7 @@ input {
     cursor: pointer;
 }
 
-nav {
-    background-color: red;
-}
-header {
-    background-color: blue;
-}
-
-section {
+#tasks {
     background-color: yellow;
+    flex-grow: 1;
 }
