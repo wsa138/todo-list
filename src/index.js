@@ -29,13 +29,14 @@ close.addEventListener('click', function() {
 })
 
 // Submit button event sets entered name to variable. 
-let newProject = '';
 let submit = document.querySelector('.submit-btn');
+let projectForm = document.getElementById("project-form")
 let newProjectInput = document.getElementById('newProject');
 submit.addEventListener('click', function(e) {
     e.preventDefault();
     addNewProject(newProjectInput.value, projectsArr, projectsMenu);
     displayNone(modal);
+    projectForm.reset();
 })
 
 
