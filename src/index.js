@@ -8,34 +8,31 @@ dateHeader.innerHTML = `${formattedDate}`
 
 
 // Array containing all the projects created and saved to storage.
-let projectsArr = []
-
-
-// Projects menu element.
-const projectsMenu = document.getElementById("projects-menu")
+const projectsArr = []
 
 
 // Add project click event brings up modal.
-let addProject = document.getElementById('addProject')
-let modal = document.querySelector('.bg-modal');
+const addProject = document.getElementById('addProject')
+const projectsModal = document.querySelector('.projects-modal');
 addProject.addEventListener('click', function() {
-    changeDisplay(modal, 'flex');
+    changeDisplay(projectsModal, 'flex');
 });
 
 // X button click event closes modal.
-let close = document.querySelector('.close-btn');
+const close = document.querySelector('.close-btn');
 close.addEventListener('click', function() {
-    displayNone(modal);
+    displayNone(projectsModal);
 })
 
 // Submit button event sets entered name to variable. 
-let submit = document.querySelector('.submit-btn');
-let projectForm = document.getElementById("project-form")
-let newProjectInput = document.getElementById('newProject');
+const submit = document.querySelector('.submit-btn');
+const projectForm = document.getElementById("project-form")
+const newProjectInput = document.getElementById('newProject');
+const projectsMenu = document.getElementById("projects-menu")
 submit.addEventListener('click', function(e) {
     e.preventDefault();
     addNewProject(newProjectInput.value, projectsArr, projectsMenu);
-    displayNone(modal);
+    displayNone(projectsModal);
     projectForm.reset();
 })
 
@@ -49,3 +46,9 @@ const displayNone = (element) => {
 const changeDisplay = (element, display) => {
     element.style.display = display;
 }
+
+// Add task click event to display task modal.
+const addTaskBtn = document.getElementById('addTaskBtn')
+addTaskBtn.addEventListener('click', function() {
+    alert("Adding task");
+})
