@@ -44,10 +44,7 @@ allClose.forEach(function(ele) {
     })
 })
 
-
-
-
-// Submit button event sets entered name to variable. 
+// Submit button event for 'Add Project' sets entered name to variable. 
 const submit = document.querySelector('.submit-btn');
 const projectForm = document.getElementById("project-form")
 const newProjectInput = document.getElementById('newProject');
@@ -59,4 +56,4 @@ submit.addEventListener('click', function(e) {
     projectForm.reset();
 })
 
-
+// Submit button event for 'Add Task' sets all values to task object.

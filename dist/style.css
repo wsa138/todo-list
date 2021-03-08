@@ -154,7 +154,8 @@ input {
     background-color: rgb(187, 187, 186);
     flex-grow: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
 }
 
 #addTaskBtn {
@@ -163,7 +164,7 @@ input {
     border: solid;
     height: 2rem;
     width: 100%;
-    text-align: center;
     margin-top: .2rem;
     cursor: pointer;
+    text-align: center;
 }

@@ -2,3 +2,6 @@
 and add them to the html.
 */
 
+const taskFactory = () => {
+    const newTaskEle = document.createElement('li');
+}
