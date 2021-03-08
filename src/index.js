@@ -10,19 +10,42 @@ dateHeader.innerHTML = `${formattedDate}`
 // Array containing all the projects created and saved to storage.
 const projectsArr = []
 
+// Function changes an elements display value to 'none'.
+const displayNone = (element) => {
+    element.style.display = 'none';
+}
 
-// Add project click event brings up modal.
+// Function changes an elements display value to provided value.
+const changeDisplay = (element, display) => {
+    element.style.display = display;
+}
+
+// Add project click event displays projects modal.
 const addProject = document.getElementById('addProject')
 const projectsModal = document.querySelector('.projects-modal');
 addProject.addEventListener('click', function() {
     changeDisplay(projectsModal, 'flex');
 });
 
-// X button click event closes modal.
-const close = document.querySelector('.close-btn');
-close.addEventListener('click', function() {
-    displayNone(projectsModal);
+// Add task click event to display task modal.
+const addTaskBtn = document.getElementById('addTaskBtn')
+const tasksModal = document.querySelector('.tasks-modal')
+addTaskBtn.addEventListener('click', function() {
+    changeDisplay(tasksModal, 'flex');
 })
+
+// X button click event closes projects modal or tasks.
+const close = document.getElementsByClassName('close-btn');
+let allClose = Array.from(close);
+allClose.forEach(function(ele) {
+    ele.addEventListener('click', function() {
+        displayNone(projectsModal);
+        displayNone(tasksModal);
+    })
+})
+
+
+
 
 // Submit button event sets entered name to variable. 
 const submit = document.querySelector('.submit-btn');
@@ -37,18 +60,3 @@ submit.addEventListener('click', function(e) {
 })
 
 
-// Function changes an elements display value to 'none'.
-const displayNone = (element) => {
-    element.style.display = 'none';
-}
-
-// Function changes an elements display value to provided value.
-const changeDisplay = (element, display) => {
-    element.style.display = display;
-}
-
-// Add task click event to display task modal.
-const addTaskBtn = document.getElementById('addTaskBtn')
-addTaskBtn.addEventListener('click', function() {
-    alert("Adding task");
-})
