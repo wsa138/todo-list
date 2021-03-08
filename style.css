@@ -96,6 +96,17 @@ label {
     align-items: center;
 }
 
+.tasks-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal-content {
     width: 500px;
     height: 300px;
