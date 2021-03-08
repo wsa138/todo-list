@@ -7,33 +7,39 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1 id="title">To Do List</h1>
-        <p id="date"></p>
-    </header>
-    <nav id="projects-nav">
-        <ul id="projects-menu">
-            <li id="addProject">+ Add Project</a></li>
-            <hr>
-            <li id="listTitle">Projects</li>
-            <hr>
-            <li id="allProjects" class="project">All Projects</li>
-        </ul>
-    </nav>
+    <section id="content">
+        <header>
+            <h1 id="title">To Do List</h1>
+            <p id="date"></p>
+        </header>
+        <nav id="projects-nav">
+            <ul id="projects-menu">
+                <li id="addProject">+ Add Project</a></li>
+                <hr>
+                <li id="listTitle">Projects</li>
+                <hr>
+                <li id="allProjects" class="project">All Projects</li>
+            </ul>
+        </nav>
+
+        <section id="tasks">
+            <p>test</p>
+        </section>
 
 
-    <!--Modal Section-->
-    <div class="bg-modal">
-        <div class="modal-content">
-            <img id="blueprint" src="./images/blueprint.jpg" alt="Ruler and pencil on blueprint">
-            <div class="close-btn">+</div>
-            <form id="project-form" action="">
-                <input id="newProject" type="text" placeholder="New Project">
-                <button class="submit-btn">Submit</button>
-            </form>
+        <!--Modal Section-->
+        <div class="bg-modal">
+            <div class="modal-content">
+                <img id="blueprint" src="./images/blueprint.jpg" alt="Ruler and pencil on blueprint">
+                <div class="close-btn">+</div>
+                <form id="project-form" action="">
+                    <input id="newProject" type="text" placeholder="New Project">
+                    <button class="submit-btn">Submit</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <script src="main.js"></script>
+        <script src="main.js"></script>
+    </section>  
 </body>
 </html>
