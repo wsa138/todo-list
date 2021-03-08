@@ -4,6 +4,7 @@
 const projectFactory = (name) => {
     const newEle = document.createElement("li");
     newEle.innerHTML = name;
+    newEle.className = 'project'
     newEle.style.cursor = 'pointer'
     return { name, newEle };
 }
