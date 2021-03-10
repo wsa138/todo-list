@@ -57,5 +57,8 @@ submit.addEventListener('click', function(e) {
     projectForm.reset();
 })
 
+// FIXME: create this only if there is not saved user data.
+addNewProject("All Projects", projectsArr, projectsMenu);
+
 // Submit button event for 'Add Task' sets all values to task object.
 console.log(taskFactory('test name', 'test date'));
