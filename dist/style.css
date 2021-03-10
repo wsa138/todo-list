@@ -168,3 +168,15 @@ input {
     cursor: pointer;
     text-align: center;
 }
+
+.task {
+    font-size: 1.5rem;
+    padding: .5rem 0 .5rem 3rem;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+}
+
+.date-time {
+    justify-self: end;
+}
