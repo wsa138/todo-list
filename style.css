@@ -1,5 +1,6 @@
 html, body {
     margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
 }
@@ -175,7 +176,7 @@ input {
     color: rgb(56, 56, 56);
     border: solid;
     height: 2rem;
-    width: 100%;
+    width: 99%;
     margin-top: .2rem;
     cursor: pointer;
     text-align: center;
@@ -191,4 +192,8 @@ input {
 
 .date-time {
     justify-self: end;
+}
+
+.tasks-header {
+    text-align: center;
 }
