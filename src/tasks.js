@@ -14,9 +14,11 @@ const taskFactory = (name, dateTime) => {
     return { newTask, newTaskName, newTaskDateTime };
 }
 
-// Function adds new task to parent project.
-const addTaskProject = () => {
-
+// Function pushes task object to parent project array.
+const addTaskProject = (parentProject, taskObj) => {
+    parentProject.push(taskObj);
 }
 
-export { taskFactory }
+
+
+export { taskFactory, addTaskProject }

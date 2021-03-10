@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { addNewProject } from './projects.js'
-import { taskFactory } from './tasks.js'
+import { taskFactory, addTaskProject } from './tasks.js'
 
 // Set the current date at the top of the page.
 const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
@@ -62,3 +62,5 @@ addNewProject("All Projects", projectsArr, projectsMenu);
 
 // Submit button event for 'Add Task' sets all values to task object.
 console.log(taskFactory('test name', 'test date'));
+
+addTaskProject(projectsArr[0].projectTasksArr, taskFactory('test name', 'test date'))

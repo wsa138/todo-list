@@ -1,12 +1,13 @@
 // This module contains all functions related to projects.
 
-// Factory that creates projects.
+// Factory that creates projects objects.
 const projectFactory = (name) => {
     const newEle = document.createElement("li");
     newEle.innerHTML = name;
     newEle.className = 'project'
     newEle.style.cursor = 'pointer'
-    return { name, newEle };
+    const projectTasksArr = [];
+    return { name, newEle, projectTasksArr };
 }
 
 // Function takes project object and pushes it to a project array.
