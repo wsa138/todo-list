@@ -2,11 +2,11 @@
 
 // Factory that creates projects objects.
 const projectFactory = (name) => {
-    const newEle = document.createElement("li");
+    let newEle = document.createElement("li");
     newEle.innerHTML = name;
     newEle.className = 'project'
     newEle.style.cursor = 'pointer'
-    const projectTasksArr = [];
+    let projectTasksArr = [];
     return { name, newEle, projectTasksArr };
 }
 
@@ -29,5 +29,13 @@ const addNewProject = (name, array, parent) => {
     createProjectsMenu(array, parent);
 }
 
+// When project selected, shows project name above task list. 
+const displayProject = (projectName, parent) => {
+    let taskHeader = document.createElement('h2');
+    taskHeader.className = 'tasks-header';
+    taskHeader.innerHTML = projectName;
+    parent.prepend(taskHeader)
+}
 
-export { addNewProject }
+
+export { addNewProject, displayProject }
