@@ -15,10 +15,17 @@ const taskFactory = (name, dateTime) => {
 }
 
 // Function pushes task object to parent project array.
-const addTaskProject = (parentProject, taskObj) => {
-    parentProject.push(taskObj);
+const addTaskProject = (parentProjectTaskArray, taskObj) => {
+    parentProjectTaskArray.push(taskObj);
 }
 
+// Creates all DOM elements for the tasks of a project and appends to the taskList element.
+const createTasksMenu = (projectObj, taskList) => {
+    projectObj.projectTasksArr.forEach(function(taskObj) {
+        taskObj.newTask.appendChild(taskObj.newTaskName);
+        taskObj.newTask.appendChild(taskObj.newTaskDateTime);
+        taskList.appendChild(taskObj.newTask);
+    })
+}
 
-
-export { taskFactory, addTaskProject }
+export { taskFactory, addTaskProject, createTasksMenu }

@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { addNewProject } from './projects.js'
-import { taskFactory, addTaskProject } from './tasks.js'
+import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js'
 
 // Set the current date at the top of the page.
 const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
@@ -46,7 +46,7 @@ allClose.forEach(function(ele) {
 })
 
 // Submit button event for 'Add Project' sets entered name to variable. 
-const submit = document.querySelector('.submit-btn');
+const submit = document.getElementById('proj-submit-btn');
 const projectForm = document.getElementById("project-form")
 const newProjectInput = document.getElementById('newProject');
 const projectsMenu = document.getElementById("projects-menu")
@@ -60,7 +60,6 @@ submit.addEventListener('click', function(e) {
 // FIXME: create this only if there is not saved user data.
 addNewProject("All Projects", projectsArr, projectsMenu);
 
-// Submit button event for 'Add Task' sets all values to task object.
-console.log(taskFactory('test name', 'test date'));
 
-addTaskProject(projectsArr[0].projectTasksArr, taskFactory('test name', 'test date'))
+
+// Submit button event for 'Add Task' sets entered values for new task object.

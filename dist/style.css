@@ -123,7 +123,19 @@ label {
     margin-top: 2rem;
 }
 
-.submit-btn {
+#proj-submit-btn {
+    background: #a20000;
+    color: white;
+    border-style: outset;
+    border-color: #c24e4e;
+    height: 2rem;
+    width: 5rem;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+    cursor: pointer;
+}
+
+#task-submit-btn {
     background: #a20000;
     color: white;
     border-style: outset;
