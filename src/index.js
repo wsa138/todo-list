@@ -46,11 +46,11 @@ allClose.forEach(function(ele) {
 })
 
 // Submit button event for 'Add Project' sets entered name to variable. 
-const submit = document.getElementById('proj-submit-btn');
+const projSubmit = document.getElementById('proj-submit-btn');
 const projectForm = document.getElementById("project-form")
 const newProjectInput = document.getElementById('newProject');
 const projectsMenu = document.getElementById("projects-menu")
-submit.addEventListener('click', function(e) {
+projSubmit.addEventListener('click', function(e) {
     e.preventDefault();
     addNewProject(newProjectInput.value, projectsArr, projectsMenu);
     displayNone(projectsModal);
@@ -63,3 +63,20 @@ addNewProject("All Projects", projectsArr, projectsMenu);
 
 
 // Submit button event for 'Add Task' sets entered values for new task object.
+const taskSubmit = document.getElementById('task-submit-btn');
+const taskForm = document.getElementById('task-form')
+const taskName = document.getElementById('newTaskName')
+const taskDate = document.getElementById('newTaskDate')
+const taskTime = document.getElementById('newTaskTime')
+const taskList = document.getElementById('tasks-list');
+
+// FIXME: Adds new tasks only to 'All Projects' project.
+taskSubmit.addEventListener('click', function(e) {
+    e.preventDefault();
+    let dateTime = `${taskDate.value} ${taskTime.value}`;
+    let newTaskObj = taskFactory(taskName.value, dateTime);
+    addTaskProject(projectsArr[0].projectTasksArr, newTaskObj);
+    createTasksMenu(projectsArr[0], taskList);
+    displayNone(tasksModal);
+    taskForm.reset();
+})
