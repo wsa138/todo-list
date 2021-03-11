@@ -60,8 +60,6 @@ projSubmit.addEventListener('click', function(e) {
 // FIXME: create this only if there is not saved user data.
 addNewProject("All Projects", projectsArr, projectsMenu);
 
-
-
 // Submit button event for 'Add Task' sets entered values for new task object.
 const taskSubmit = document.getElementById('task-submit-btn');
 const taskForm = document.getElementById('task-form')

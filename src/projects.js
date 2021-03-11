@@ -19,18 +19,23 @@ const pushProject = (projObj, array) => {
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
         parent.appendChild(obj.newEle);
+        //FIXME: Break up this function.
+        obj.newEle.addEventListener('click', function() {
+            displayProject(obj.newEle.innerHTML)
+        })
     })
 }
 
 // Task section that project header element is added to.
 let taskHead = document.getElementById('tasks-section')
 // When project selected, shows project name above task list. 
-const displayProject = (projectName, parent) => {
-    parent.removeChild(parent.childNodes[0]);
+// FIXME: Function should also display all tasks of a project.
+const displayProject = (projectName) => {
+    taskHead.removeChild(taskHead.childNodes[0]);
     let taskHeader = document.createElement('h2');
     taskHeader.className = 'tasks-header';
     taskHeader.innerHTML = projectName;
-    parent.prepend(taskHeader)
+    taskHead.prepend(taskHeader)
 }
 
 // Function takes necessary input to create a new project.
@@ -38,7 +43,7 @@ const addNewProject = (name, array, parent) => {
     let projObj = projectFactory(name);
     pushProject(projObj, array);
     createProjectsMenu(array, parent);
-    displayProject(name, taskHead)
+    displayProject(name)
 }
 
 
