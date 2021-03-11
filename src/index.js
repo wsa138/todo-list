@@ -71,6 +71,7 @@ const taskList = document.getElementById('tasks-list');
 // Task submit adds a new task to the project shown in the tasks section header.
 taskSubmit.addEventListener('click', function(e) {
     e.preventDefault();
+    removeTasks();
     let dateTime = `${taskDate.value} ${taskTime.value}`;
     let newTaskObj = taskFactory(taskName.value, dateTime);
     let currentProject = document.querySelector('.tasks-header').innerHTML;
@@ -88,4 +89,9 @@ taskSubmit.addEventListener('click', function(e) {
     console.log(projectsArr)
 })
 
-
+// Removes tasks elements when a different project is created or selected.
+const removeTasks = () => {
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
+}
