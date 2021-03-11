@@ -52,6 +52,7 @@ const newProjectInput = document.getElementById('newProject');
 const projectsMenu = document.getElementById("projects-menu")
 projSubmit.addEventListener('click', function(e) {
     e.preventDefault();
+    removeTasks();
     addNewProject(newProjectInput.value, projectsArr, projectsMenu);
     displayNone(projectsModal);
     projectForm.reset();
@@ -95,3 +96,4 @@ const removeTasks = () => {
         taskList.removeChild(taskList.lastChild);
     }
 }
+
