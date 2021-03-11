@@ -68,13 +68,24 @@ const taskDate = document.getElementById('newTaskDate')
 const taskTime = document.getElementById('newTaskTime')
 const taskList = document.getElementById('tasks-list');
 
-// FIXME: Adds new tasks only to 'All Projects' project.
+// Task submit adds a new task to the project shown in the tasks section header.
 taskSubmit.addEventListener('click', function(e) {
     e.preventDefault();
     let dateTime = `${taskDate.value} ${taskTime.value}`;
     let newTaskObj = taskFactory(taskName.value, dateTime);
-    addTaskProject(projectsArr[0].projectTasksArr, newTaskObj);
-    createTasksMenu(projectsArr[0], taskList);
+    let currentProject = document.querySelector('.tasks-header').innerHTML;
+    // Find current projects object in projectsArr.
+    for (let i = 0; i < projectsArr.length; i++) {
+        if (projectsArr[i].name === currentProject) {
+            // Add new task to that project objects task array.
+            addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
+            createTasksMenu(projectsArr[i], taskList)
+            break;
+        }
+    }
     displayNone(tasksModal);
     taskForm.reset();
+    console.log(projectsArr)
 })
+
+
