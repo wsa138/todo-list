@@ -55,7 +55,6 @@ projSubmit.addEventListener('click', function(e) {
     addNewProject(newProjectInput.value, projectsArr, projectsMenu);
     displayNone(projectsModal);
     projectForm.reset();
-    selectProject();
 })
 
 // FIXME: create this only if there is not saved user data.
@@ -81,17 +80,3 @@ taskSubmit.addEventListener('click', function(e) {
     displayNone(tasksModal);
     taskForm.reset();
 })
-
-// Add event listener to all project elements.
-const selectProject = () => {
-    const projects = Array.from(document.querySelectorAll('.project'));
-    projects.forEach(function(proj) {
-        proj.addEventListener('click', function() {
-            console.log(this.innerHTML)
-        })
-    })
-}
-
-let taskHead = document.getElementById('tasks-section')
-displayProject('testtester', taskHead);
-

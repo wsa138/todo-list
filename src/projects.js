@@ -22,20 +22,26 @@ const createProjectsMenu = (array, parent) => {
     })
 }
 
-// Function takes necessary input to create
-const addNewProject = (name, array, parent) => {
-    let projObj = projectFactory(name);
-    pushProject(projObj, array);
-    createProjectsMenu(array, parent);
-}
-
+// Task section that project header element is added to.
+let taskHead = document.getElementById('tasks-section')
 // When project selected, shows project name above task list. 
 const displayProject = (projectName, parent) => {
+    parent.removeChild(parent.childNodes[0]);
     let taskHeader = document.createElement('h2');
     taskHeader.className = 'tasks-header';
     taskHeader.innerHTML = projectName;
     parent.prepend(taskHeader)
 }
+
+// Function takes necessary input to create a new project.
+const addNewProject = (name, array, parent) => {
+    let projObj = projectFactory(name);
+    pushProject(projObj, array);
+    createProjectsMenu(array, parent);
+    displayProject(name, taskHead)
+}
+
+
 
 
 export { addNewProject, displayProject }
