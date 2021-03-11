@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { addNewProject, displayProject } from './projects.js'
+import { addNewProject, removeTasks } from './projects.js'
 import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js'
 
 // Set the current date at the top of the page.
@@ -90,10 +90,5 @@ taskSubmit.addEventListener('click', function(e) {
     console.log(projectsArr)
 })
 
-// Removes tasks elements when a different project is created or selected.
-const removeTasks = () => {
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.lastChild);
-    }
-}
+
 

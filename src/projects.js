@@ -1,5 +1,7 @@
 // This module contains all functions related to projects.
 
+import { createTasksMenu } from './tasks.js'
+
 // Factory that creates projects objects.
 const projectFactory = (name) => {
     let newEle = document.createElement("li");
@@ -21,21 +23,33 @@ const createProjectsMenu = (array, parent) => {
         parent.appendChild(obj.newEle);
         //FIXME: Break up this function.
         obj.newEle.addEventListener('click', function() {
-            displayProject(obj.newEle.innerHTML)
+            displayProject(array, obj.newEle.innerHTML)
         })
     })
+}
+
+// Finds project name in an array of projects and populates task section with its tasks.
+const populateTasks = (array, projectName) => {
+    removeTasks();
+    let taskList = document.getElementById('tasks-list');
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].name === projectName) {
+            createTasksMenu(array[i], taskList)
+        }
+    }
 }
 
 // Task section that project header element is added to.
 let taskHead = document.getElementById('tasks-section')
 // When project selected, shows project name above task list. 
 // FIXME: Function should also display all tasks of a project.
-const displayProject = (projectName) => {
+const displayProject = (array, projectName) => {
     taskHead.removeChild(taskHead.childNodes[0]);
     let taskHeader = document.createElement('h2');
     taskHeader.className = 'tasks-header';
     taskHeader.innerHTML = projectName;
-    taskHead.prepend(taskHeader)
+    taskHead.prepend(taskHeader);
+    populateTasks(array, projectName);
 }
 
 // Function takes necessary input to create a new project.
@@ -43,10 +57,16 @@ const addNewProject = (name, array, parent) => {
     let projObj = projectFactory(name);
     pushProject(projObj, array);
     createProjectsMenu(array, parent);
-    displayProject(name)
+    displayProject(array, name)
+}
+
+// Removes tasks elements.
+const removeTasks = () => {
+    let taskList = document.getElementById('tasks-list');
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
 }
 
 
-
-
-export { addNewProject, displayProject }
+export { addNewProject, removeTasks }
