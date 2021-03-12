@@ -1,7 +1,5 @@
 // This module contains all functions related to projects.
 
-import { createProjectsMenu, displayProject } from './DOM-functionality'
-
 // Factory that creates projects objects.
 const projectFactory = (name) => {
     let newEle = document.createElement("li");

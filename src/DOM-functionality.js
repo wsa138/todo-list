@@ -95,7 +95,6 @@ function displayDOM() {
     })
 }
 
-
 // Creates elements from array of project objects and appends to parent. 
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
@@ -144,11 +143,10 @@ const projectsArr = []
 // Document elements
 const projectsMenu = document.getElementById("projects-menu")
 
-
 // Create default 'All Projects' project.
 addNewProject('All Projects', projectsArr, projectsMenu);
 createProjectsMenu(projectsArr, projectsMenu);
 displayProject(projectsArr, 'All Projects');
 
 
-export { displayDOM, createProjectsMenu, displayProject }
+export { displayDOM }
