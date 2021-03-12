@@ -19,11 +19,9 @@ const pushProject = (projObj, array) => {
 
 
 // Function takes necessary input to create a new project.
-const addNewProject = (name, array, parent) => {
+const addNewProject = (name, array) => {
     let projObj = projectFactory(name);
     pushProject(projObj, array);
-    createProjectsMenu(array, parent);
-    displayProject(array, name)
 }
 
 

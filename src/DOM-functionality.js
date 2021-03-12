@@ -12,9 +12,6 @@ function displayDOM() {
     dateHeader.innerHTML = `${formattedDate}`
 
 
-    // Array containing all the projects created and saved to storage.
-    const projectsArr = []
-
     // Function changes an elements display value to 'none'.
     const displayNone = (element) => {
         element.style.display = 'none';
@@ -60,12 +57,14 @@ function displayDOM() {
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
-        addNewProject(newProjectInput.value, projectsArr, projectsMenu);
+        addNewProject(newProjectInput.value, projectsArr);
+        createProjectsMenu(projectsArr, projectsMenu);
+        displayProject(projectsArr, newProjectInput.value);
         displayNone(projectsModal);
         projectForm.reset();
     })
 
-    addNewProject("All Projects", projectsArr, projectsMenu);
+    
 
     // Submit button event for 'Add Task' sets entered values for new task object.
     const taskSubmit = document.getElementById('task-submit-btn');
@@ -107,9 +106,7 @@ const createProjectsMenu = (array, parent) => {
     })
 }
 
-// Task section that project header element is added to.
-
-
+// Displays created or selected project name as header of tasks section.
 const displayProject = (array, projectName) => {
     let taskHead = document.getElementById('tasks-section')
     taskHead.removeChild(taskHead.childNodes[0]);
@@ -138,5 +135,18 @@ const removeTasks = () => {
         taskList.removeChild(taskList.lastChild);
     }
 }
+
+// Array containing all the projects created and saved to storage.
+const projectsArr = []
+
+// Document elements
+const projectsMenu = document.getElementById("projects-menu")
+
+
+// Create default 'All Projects' project.
+addNewProject('All Projects', projectsArr, projectsMenu);
+createProjectsMenu(projectsArr, projectsMenu);
+displayProject(projectsArr, 'All Projects');
+
 
 export { displayDOM, createProjectsMenu, displayProject }
