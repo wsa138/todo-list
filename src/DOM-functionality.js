@@ -96,17 +96,18 @@ function displayDOM() {
 }
 
 
-// Takes an array of project objects and creates an element appended to parent. 
+// Creates elements from array of project objects and appends to parent. 
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
         parent.appendChild(obj.newEle);
+        // Sets project name as task header when project clicked.
         obj.newEle.addEventListener('click', function() {
             displayProject(array, obj.newEle.innerHTML)
         })
     })
 }
 
-// Displays created or selected project name as header of tasks section.
+// Sets header of task section to recently created or selected project.
 const displayProject = (array, projectName) => {
     let taskHead = document.getElementById('tasks-section')
     taskHead.removeChild(taskHead.childNodes[0]);
@@ -117,12 +118,13 @@ const displayProject = (array, projectName) => {
     populateTasks(array, projectName);
 }
 
-// Finds project name in an array of projects and populates task section with its tasks.
+// Finds project object with corresponding project name.
 const populateTasks = (array, projectName) => {
     removeTasks();
     let taskList = document.getElementById('tasks-list');
     for (let i = 0; i < array.length; i++) {
         if (array[i].name === projectName) {
+            // Creates and appends elements from projects task objects to task section.
             createTasksMenu(array[i], taskList)
         }
     }
