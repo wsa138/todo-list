@@ -1,7 +1,7 @@
 // Contains functions that access and manipulate the DOM.
 
 import { format } from 'date-fns'
-import { addNewProject, removeTasks } from './projects.js'
+import { addNewProject } from './projects.js'
 import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js'
 
 function displayDOM() {
@@ -90,8 +90,50 @@ function displayDOM() {
         }
         displayNone(tasksModal);
         taskForm.reset();
-        console.log(projectsArr)
     })
 }
 
-export { displayDOM }
+
+    // Takes an array of project objects and creates an element appended to parent. 
+    const createProjectsMenu = (array, parent) => {
+        array.forEach(function(obj) {
+            parent.appendChild(obj.newEle);
+            obj.newEle.addEventListener('click', function() {
+                displayProject(array, obj.newEle.innerHTML)
+            })
+        })
+    }
+
+// Task section that project header element is added to.
+let taskHead = document.getElementById('tasks-section')
+
+// When project selected, shows project name above task list. 
+const displayProject = (array, projectName) => {
+    taskHead.removeChild(taskHead.childNodes[0]);
+    let taskHeader = document.createElement('h2');
+    taskHeader.className = 'tasks-header';
+    taskHeader.innerHTML = projectName;
+    taskHead.prepend(taskHeader);
+    populateTasks(array, projectName);
+}
+
+// Finds project name in an array of projects and populates task section with its tasks.
+const populateTasks = (array, projectName) => {
+    removeTasks();
+    let taskList = document.getElementById('tasks-list');
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].name === projectName) {
+            createTasksMenu(array[i], taskList)
+        }
+    }
+}
+
+// Removes tasks elements.
+const removeTasks = () => {
+    let taskList = document.getElementById('tasks-list');
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
+}
+
+export { displayDOM, createProjectsMenu, displayProject }
