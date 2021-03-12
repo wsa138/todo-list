@@ -6,9 +6,27 @@ import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js'
 
 function displayDOM() {
 
+    // Document references:
+    const dateHeader = document.getElementById('date')
+    const addProject = document.getElementById('addProject')
+    const projectsModal = document.querySelector('.projects-modal');
+    const addTaskBtn = document.getElementById('addTaskBtn')
+    const tasksModal = document.querySelector('.tasks-modal')
+    const close = document.getElementsByClassName('close-btn');
+    const projSubmit = document.getElementById('proj-submit-btn');
+    const projectForm = document.getElementById("project-form")
+    const newProjectInput = document.getElementById('newProject');
+    const projectsMenu = document.getElementById("projects-menu")
+    const taskSubmit = document.getElementById('task-submit-btn');
+    const taskForm = document.getElementById('task-form')
+    const taskName = document.getElementById('newTaskName')
+    const taskDate = document.getElementById('newTaskDate')
+    const taskTime = document.getElementById('newTaskTime')
+    const taskList = document.getElementById('tasks-list');
+
+
     // Set the current date at the top of the page.
     const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy')
-    const dateHeader = document.getElementById('date')
     dateHeader.innerHTML = `${formattedDate}`
 
 
@@ -25,21 +43,16 @@ function displayDOM() {
     // PROJECT AND TASK MODAL EVENT LISTENERS
 
     // Click event displays projects modal.
-    const addProject = document.getElementById('addProject')
-    const projectsModal = document.querySelector('.projects-modal');
     addProject.addEventListener('click', function() {
         changeDisplay(projectsModal, 'flex');
     });
 
     // Click event displays task modal.
-    const addTaskBtn = document.getElementById('addTaskBtn')
-    const tasksModal = document.querySelector('.tasks-modal')
     addTaskBtn.addEventListener('click', function() {
         changeDisplay(tasksModal, 'flex');
     })
 
     // Click event closes projects and tasks modal.
-    const close = document.getElementsByClassName('close-btn');
     let allClose = Array.from(close);
     allClose.forEach(function(ele) {
         ele.addEventListener('click', function() {
@@ -48,12 +61,7 @@ function displayDOM() {
         })
     })
 
-    // Submit button event for 'Add Project' sets entered name to variable. 
-    const projSubmit = document.getElementById('proj-submit-btn');
-    const projectForm = document.getElementById("project-form")
-    const newProjectInput = document.getElementById('newProject');
-    const projectsMenu = document.getElementById("projects-menu")
-
+    // Submit button event for 'Add Project' sets entered name to variable.
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
@@ -64,17 +72,8 @@ function displayDOM() {
         projectForm.reset();
     })
 
-    
-
-    // Submit button event for 'Add Task' sets entered values for new task object.
-    const taskSubmit = document.getElementById('task-submit-btn');
-    const taskForm = document.getElementById('task-form')
-    const taskName = document.getElementById('newTaskName')
-    const taskDate = document.getElementById('newTaskDate')
-    const taskTime = document.getElementById('newTaskTime')
-    const taskList = document.getElementById('tasks-list');
-
-    // Task submit adds a new task to the project shown in the tasks section header.
+    // On task modal submit, creates task object and appends it to the current
+    // projects array of task objects, and recreates the task menu.
     taskSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
@@ -84,8 +83,9 @@ function displayDOM() {
         // Find current projects object in projectsArr.
         for (let i = 0; i < projectsArr.length; i++) {
             if (projectsArr[i].name === currentProject) {
-                // Add new task to that project objects task array.
+                // Add new task object to current project array of task objects.
                 addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
+                // Re-creates current projects task list.
                 createTasksMenu(projectsArr[i], taskList)
                 break;
             }
