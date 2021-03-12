@@ -25,21 +25,23 @@ function displayDOM() {
         element.style.display = display;
     }
 
-    // Add project click event displays projects modal.
+    // PROJECT AND TASK MODAL EVENT LISTENERS
+
+    // Click event displays projects modal.
     const addProject = document.getElementById('addProject')
     const projectsModal = document.querySelector('.projects-modal');
     addProject.addEventListener('click', function() {
         changeDisplay(projectsModal, 'flex');
     });
 
-    // Add task click event to display task modal.
+    // Click event displays task modal.
     const addTaskBtn = document.getElementById('addTaskBtn')
     const tasksModal = document.querySelector('.tasks-modal')
     addTaskBtn.addEventListener('click', function() {
         changeDisplay(tasksModal, 'flex');
     })
 
-    // X button click event closes projects modal or tasks.
+    // Click event closes projects and tasks modal.
     const close = document.getElementsByClassName('close-btn');
     let allClose = Array.from(close);
     allClose.forEach(function(ele) {
@@ -54,6 +56,7 @@ function displayDOM() {
     const projectForm = document.getElementById("project-form")
     const newProjectInput = document.getElementById('newProject');
     const projectsMenu = document.getElementById("projects-menu")
+
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
@@ -94,21 +97,21 @@ function displayDOM() {
 }
 
 
-    // Takes an array of project objects and creates an element appended to parent. 
-    const createProjectsMenu = (array, parent) => {
-        array.forEach(function(obj) {
-            parent.appendChild(obj.newEle);
-            obj.newEle.addEventListener('click', function() {
-                displayProject(array, obj.newEle.innerHTML)
-            })
+// Takes an array of project objects and creates an element appended to parent. 
+const createProjectsMenu = (array, parent) => {
+    array.forEach(function(obj) {
+        parent.appendChild(obj.newEle);
+        obj.newEle.addEventListener('click', function() {
+            displayProject(array, obj.newEle.innerHTML)
         })
-    }
+    })
+}
 
 // Task section that project header element is added to.
-let taskHead = document.getElementById('tasks-section')
 
-// When project selected, shows project name above task list. 
+
 const displayProject = (array, projectName) => {
+    let taskHead = document.getElementById('tasks-section')
     taskHead.removeChild(taskHead.childNodes[0]);
     let taskHeader = document.createElement('h2');
     taskHeader.className = 'tasks-header';

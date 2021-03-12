@@ -1,6 +1,5 @@
 // This module contains all functions related to projects.
 
-import { createTasksMenu } from './tasks.js'
 import { createProjectsMenu, displayProject } from './DOM-functionality'
 
 // Factory that creates projects objects.
