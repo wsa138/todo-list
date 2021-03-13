@@ -107,7 +107,20 @@ const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
         let header = obj.newEle.innerHTML;
         parent.appendChild(obj.newEle);
+        // If element does not have a complete and delete button, create and append them.
+        if (obj.newEle.childNodes.length === 1) {
+            let completeEle = document.createElement('button');
+            completeEle.innerHTML = 'complete test';
+            completeEle.className = 'complete-btn';
+            let deleteEle = document.createElement('button');
+            deleteEle.innerHTML = 'delete';
+            deleteEle.className = 'delete-btn';
+            obj.newEle.appendChild(completeEle);
+            obj.newEle.appendChild(deleteEle);
+        }
         // Sets project name as task header when project clicked.
+        // FIXME: A new event listener is added every time a new project is created.
+        // This creates duplicate events on an element and changes the header text.
         obj.newEle.addEventListener('click', function() {
             displayProject(array, header)
         })
