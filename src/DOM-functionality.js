@@ -61,13 +61,20 @@ function displayDOM() {
         })
     })
 
-    // Submit button event for 'Add Project' sets entered name to variable.
+    // Submit button event for 'Add Project'..
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
+
+        // Creates project object and appends to projects array.
         addNewProject(newProjectInput.value, projectsArr);
+
+        // Creates project elements.
         createProjectsMenu(projectsArr, projectsMenu);
+
+        // Sets task header as new project's name.
         displayProject(projectsArr, newProjectInput.value);
+        
         displayNone(projectsModal);
         projectForm.reset();
     })
