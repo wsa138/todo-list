@@ -74,7 +74,7 @@ function displayDOM() {
 
         // Sets task header as new project's name.
         displayProject(projectsArr, newProjectInput.value);
-        
+
         displayNone(projectsModal);
         projectForm.reset();
     })
@@ -105,10 +105,11 @@ function displayDOM() {
 // Creates elements from array of project objects and appends to parent. 
 const createProjectsMenu = (array, parent) => {
     array.forEach(function(obj) {
+        let header = obj.newEle.innerHTML;
         parent.appendChild(obj.newEle);
         // Sets project name as task header when project clicked.
         obj.newEle.addEventListener('click', function() {
-            displayProject(array, obj.newEle.innerHTML)
+            displayProject(array, header)
         })
     })
 }
