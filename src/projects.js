@@ -6,8 +6,9 @@ const projectFactory = (name) => {
     newEle.innerHTML = name;
     newEle.className = 'project'
     newEle.style.cursor = 'pointer'
-    let projectTasksArr = [];
-    return { name, newEle, projectTasksArr };
+    const projectTasksArr = [];
+    const eventFlag = false;
+    return { name, newEle, projectTasksArr, eventFlag };
 }
 
 // Function takes project object and pushes it to a project array.

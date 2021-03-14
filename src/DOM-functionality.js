@@ -118,12 +118,13 @@ const createProjectsMenu = (array, parent) => {
             obj.newEle.appendChild(completeEle);
             obj.newEle.appendChild(deleteEle);
         }
-        // Sets project name as task header when project clicked.
-        // FIXME: A new event listener is added every time a new project is created.
-        // This creates duplicate events on an element and changes the header text.
-        obj.newEle.addEventListener('click', function() {
-            displayProject(array, header)
-        })
+        // Adds event listener if no prior event set.
+        if (obj.eventFlag === false) {
+            obj.newEle.addEventListener('click', function() {
+                displayProject(array, header);
+            })
+        }
+        obj.eventFlag = true;
     })
 }
 
