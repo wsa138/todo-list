@@ -111,10 +111,12 @@ const createProjectsMenu = (array, parent) => {
         if (obj.newEle.childNodes.length === 1) {
             let completeEle = document.createElement('button');
             completeEle.innerHTML = '&#10003';
-            completeEle.className = 'complete-btn';
+            completeEle.className = 'proj-btn';
+            completeEle.id = 'complete-btn'
             let deleteEle = document.createElement('button');
             deleteEle.innerHTML = '-';
-            deleteEle.className = 'delete-btn';
+            deleteEle.className = 'proj-btn';
+            deleteEle.id = 'delete-btn'
             obj.newEle.appendChild(completeEle);
             obj.newEle.appendChild(deleteEle);
         }
