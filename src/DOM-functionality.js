@@ -7,21 +7,20 @@ import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js'
 function displayDOM() {
 
     // Document references:
-    const dateHeader = document.getElementById('date')
-    const addProject = document.getElementById('addProject')
+    const dateHeader = document.getElementById('date');
+    const addProject = document.getElementById('addProject');
     const projectsModal = document.querySelector('.projects-modal');
-    const addTaskBtn = document.getElementById('addTaskBtn')
-    const tasksModal = document.querySelector('.tasks-modal')
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const tasksModal = document.querySelector('.tasks-modal');
     const close = document.getElementsByClassName('close-btn');
     const projSubmit = document.getElementById('proj-submit-btn');
-    const projectForm = document.getElementById("project-form")
+    const projectForm = document.getElementById("project-form");
     const newProjectInput = document.getElementById('newProject');
-    const projectsMenu = document.getElementById("projects-menu")
     const taskSubmit = document.getElementById('task-submit-btn');
-    const taskForm = document.getElementById('task-form')
-    const taskName = document.getElementById('newTaskName')
-    const taskDate = document.getElementById('newTaskDate')
-    const taskTime = document.getElementById('newTaskTime')
+    const taskForm = document.getElementById('task-form');
+    const taskName = document.getElementById('newTaskName');
+    const taskDate = document.getElementById('newTaskDate');
+    const taskTime = document.getElementById('newTaskTime');
     const taskList = document.getElementById('tasks-list');
 
 
@@ -65,16 +64,13 @@ function displayDOM() {
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
-
         // Creates project object and appends to projects array.
         addNewProject(newProjectInput.value, projectsArr);
+        // Adds the project to the projects menu.
         let newestProj = projectsArr[projectsArr.length - 1]
         addProjectToMenu(newestProj);
-
-
         // Sets task header as new project's name.
         displayProject(projectsArr, newProjectInput.value);
-
         displayNone(projectsModal);
         projectForm.reset();
     })
@@ -102,18 +98,21 @@ function displayDOM() {
     })
 }
 
-// Add event listener for displaying project name when clicked.
-const addDisplayEvent = (obj) => {
-    obj.newEle.addEventListener('click', function() {
-        displayProject(projectsArr, obj.name);
-    })
-}
+// Document elements
+const projectsMenu = document.getElementById("projects-menu")
+
 
 // Add a new project to the projects menu.
 const addProjectToMenu = (obj) =>{
     projectsMenu.appendChild(obj.newEle)
     addFinishButtons(obj.newEle)
-    addDisplayEvent(obj);
+    addDisplayEvent(obj.name, obj.newEle);
+}
+// Add event listener for displaying project name when clicked.
+const addDisplayEvent = (name, ele) => {
+    ele.addEventListener('click', function() {
+        displayProject(projectsArr, name);
+    })
 }
 
 const addFinishButtons = (parentEle) => {
@@ -128,6 +127,7 @@ const addFinishButtons = (parentEle) => {
         parentEle.appendChild(completeEle);
         parentEle.appendChild(deleteEle);
 }
+
 
 // Sets header of task section to recently created or selected project.
 const displayProject = (array, projectName) => {
@@ -163,12 +163,8 @@ const removeTasks = () => {
 // Array containing all the projects created and saved to storage.
 const projectsArr = []
 
-// Document elements
-const projectsMenu = document.getElementById("projects-menu")
-
-//TODO: Create a default project that shows every task created.
 /*
-// Create default 'All Projects' project.
+// TODO: Create a default project that contains all task elements of other proejcts.
 addNewProject('All Projects', projectsArr, projectsMenu);
 createProjectsMenu(projectsArr, projectsMenu);
 displayProject(projectsArr, 'All Projects');
