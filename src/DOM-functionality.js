@@ -68,9 +68,9 @@ function displayDOM() {
 
         // Creates project object and appends to projects array.
         addNewProject(newProjectInput.value, projectsArr);
+        let newestProj = projectsArr[projectsArr.length - 1]
+        addProjectToMenu(newestProj);
 
-        // Creates project elements.
-        createProjectsMenu(projectsArr, projectsMenu);
 
         // Sets task header as new project's name.
         displayProject(projectsArr, newProjectInput.value);
@@ -109,16 +109,7 @@ const createProjectsMenu = (array, parent) => {
         parent.appendChild(obj.newEle);
         // If element does not have a complete and delete button, create and append them.
         if (obj.newEle.childNodes.length === 1) {
-            let completeEle = document.createElement('button');
-            completeEle.innerHTML = '&#10003';
-            completeEle.className = 'proj-btn';
-            completeEle.id = 'complete-btn'
-            let deleteEle = document.createElement('button');
-            deleteEle.innerHTML = '&#8722;';
-            deleteEle.className = 'proj-btn';
-            deleteEle.id = 'delete-btn'
-            obj.newEle.appendChild(completeEle);
-            obj.newEle.appendChild(deleteEle);
+            addFinishButtons(obj.newEle)
         }
         // Adds event listener if no prior event set.
         if (obj.eventFlag === false) {
@@ -128,6 +119,33 @@ const createProjectsMenu = (array, parent) => {
         }
         obj.eventFlag = true;
     })
+}
+
+// Add event listener for displaying project name when clicked.
+const addDisplayEvent = (obj) => {
+    obj.newEle.addEventListener('click', function() {
+        displayProject(projectsArr, obj.name);
+    })
+}
+
+// Add a new project to the projects menu.
+const addProjectToMenu = (obj) =>{
+    projectsMenu.appendChild(obj.newEle)
+    addFinishButtons(obj.newEle)
+    addDisplayEvent(obj);
+}
+
+const addFinishButtons = (parentEle) => {
+    let completeEle = document.createElement('button');
+        completeEle.innerHTML = '&#10003';
+        completeEle.className = 'proj-btn';
+        completeEle.id = 'complete-btn'
+        let deleteEle = document.createElement('button');
+        deleteEle.innerHTML = '&#8722;';
+        deleteEle.className = 'proj-btn';
+        deleteEle.id = 'delete-btn'
+        parentEle.appendChild(completeEle);
+        parentEle.appendChild(deleteEle);
 }
 
 // Sets header of task section to recently created or selected project.
