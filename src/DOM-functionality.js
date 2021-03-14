@@ -110,10 +110,10 @@ const createProjectsMenu = (array, parent) => {
         // If element does not have a complete and delete button, create and append them.
         if (obj.newEle.childNodes.length === 1) {
             let completeEle = document.createElement('button');
-            completeEle.innerHTML = 'complete test';
+            completeEle.innerHTML = '&#10003';
             completeEle.className = 'complete-btn';
             let deleteEle = document.createElement('button');
-            deleteEle.innerHTML = 'delete';
+            deleteEle.innerHTML = '-';
             deleteEle.className = 'delete-btn';
             obj.newEle.appendChild(completeEle);
             obj.newEle.appendChild(deleteEle);
