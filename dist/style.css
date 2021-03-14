@@ -206,12 +206,23 @@ input {
     background-color: green;
 }
 
+#complete-btn:hover {
+    background-color: rgb(23, 160, 23);
+}
+
 #delete-btn {
     background-color: red;
 }
 
+#delete-btn:hover {
+    background-color: rgb(250, 60, 60);
+}
+
 .proj-btn {
     height: 2rem;
+    cursor: pointer;
 }
+
+
 
 
