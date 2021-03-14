@@ -102,25 +102,6 @@ function displayDOM() {
     })
 }
 
-// Creates elements from array of project objects and appends to parent. 
-const createProjectsMenu = (array, parent) => {
-    array.forEach(function(obj) {
-        let header = obj.newEle.innerHTML;
-        parent.appendChild(obj.newEle);
-        // If element does not have a complete and delete button, create and append them.
-        if (obj.newEle.childNodes.length === 1) {
-            addFinishButtons(obj.newEle)
-        }
-        // Adds event listener if no prior event set.
-        if (obj.eventFlag === false) {
-            obj.newEle.addEventListener('click', function() {
-                displayProject(array, header);
-            })
-        }
-        obj.eventFlag = true;
-    })
-}
-
 // Add event listener for displaying project name when clicked.
 const addDisplayEvent = (obj) => {
     obj.newEle.addEventListener('click', function() {
@@ -185,10 +166,12 @@ const projectsArr = []
 // Document elements
 const projectsMenu = document.getElementById("projects-menu")
 
+//TODO: Create a default project that shows every task created.
+/*
 // Create default 'All Projects' project.
 addNewProject('All Projects', projectsArr, projectsMenu);
 createProjectsMenu(projectsArr, projectsMenu);
 displayProject(projectsArr, 'All Projects');
-
+*/
 
 export { displayDOM }
