@@ -131,13 +131,16 @@ const addFinishButtons = (parentEle) => {
 }
 
 // Add an event listener on the 'complete' button.
+// TODO: Add necessary code related to a complete event.
 const setCompleteEvent = (ele) => {
     ele.addEventListener('click', function() {
         alert('COMPLETED');
+        
     })
 }
 
-//Add an event listener on 'delete' button.
+// Add an event listener on 'delete' button.
+// TODO: Add necessary code for a delete event.
 const setDeleteEvent = (ele) => {
     ele.addEventListener('click', () => {
         alert('DELETED');
