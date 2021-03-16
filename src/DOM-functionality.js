@@ -139,7 +139,6 @@ const setCompleteEvent = (ele) => {
 }
 
 // Add an event listener on 'delete' button.
-// TODO: Delete the project object from projectsArr.
 const setDeleteEvent = (ele) => {
     ele.addEventListener('click', () => {
         deleteProjectObj(ele.parentElement.innerText);
@@ -151,9 +150,7 @@ const setDeleteEvent = (ele) => {
 const deleteProjectObj = (eleText) => {
     projectsArr.forEach(function(obj) {
         if (obj.newEle.innerText === eleText) {
-            console.log(projectsArr);
             projectsArr.splice(projectsArr.indexOf(obj), 1);
-            console.log(projectsArr);
         }
     })
 }
