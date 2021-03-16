@@ -7,8 +7,7 @@ const projectFactory = (name) => {
     newEle.className = 'project'
     newEle.style.cursor = 'pointer'
     const projectTasksArr = [];
-    const eventFlag = false;
-    return { name, newEle, projectTasksArr, eventFlag };
+    return { name, newEle, projectTasksArr };
 }
 
 // Function takes project object and pushes it to a project array.
