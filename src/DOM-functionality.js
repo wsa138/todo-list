@@ -134,8 +134,7 @@ const addFinishButtons = (parentEle) => {
 // TODO: Add necessary code related to a complete event.
 const setCompleteEvent = (ele) => {
     ele.addEventListener('click', function() {
-        alert('COMPLETED');
-        
+        ele.parentElement.style.backgroundColor = 'green';
     })
 }
 
@@ -143,7 +142,9 @@ const setCompleteEvent = (ele) => {
 // TODO: Add necessary code for a delete event.
 const setDeleteEvent = (ele) => {
     ele.addEventListener('click', () => {
-        alert('DELETED');
+        console.log(ele.parentElement.innerHTML);
+        console.log(ele.parentElement.innerText);
+        ele.parentElement.remove();
     })
 }
 
