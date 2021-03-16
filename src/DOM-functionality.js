@@ -39,6 +39,16 @@ function displayDOM() {
         element.style.display = display;
     }
 
+    // Check if a project has been created before submitting a task.
+    const checkCreatedProject = () => {
+        if (projectsArr.length === 0) {
+            alert('Please create a project before adding tasks.')
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     // PROJECT AND TASK MODAL EVENT LISTENERS
 
     // Click event displays projects modal.
@@ -79,18 +89,20 @@ function displayDOM() {
     // projects array of task objects, and recreates the task menu.
     taskSubmit.addEventListener('click', function(e) {
         e.preventDefault();
-        removeTasks();
-        let dateTime = `${taskDate.value} ${taskTime.value}`;
-        let newTaskObj = taskFactory(taskName.value, dateTime);
-        let currentProject = document.querySelector('.tasks-header').innerHTML;
-        // Find current projects object in projectsArr.
-        for (let i = 0; i < projectsArr.length; i++) {
-            if (projectsArr[i].name === currentProject) {
-                // Add new task object to current project array of task objects.
-                addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
-                // Re-creates current projects task list.
-                createTasksMenu(projectsArr[i], taskList)
-                break;
+        if (checkCreatedProject()) {
+            removeTasks();
+            let dateTime = `${taskDate.value} ${taskTime.value}`;
+            let newTaskObj = taskFactory(taskName.value, dateTime);
+            let currentProject = document.querySelector('.tasks-header').innerHTML;
+            // Find current projects object in projectsArr.
+            for (let i = 0; i < projectsArr.length; i++) {
+                if (projectsArr[i].name === currentProject) {
+                    // Add new task object to current project array of task objects.
+                    addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
+                    // Re-creates current projects task list.
+                    createTasksMenu(projectsArr[i], taskList)
+                    break;
+                }
             }
         }
         displayNone(tasksModal);
