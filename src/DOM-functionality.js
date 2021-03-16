@@ -126,6 +126,22 @@ const addFinishButtons = (parentEle) => {
         deleteEle.id = 'delete-btn'
         parentEle.appendChild(completeEle);
         parentEle.appendChild(deleteEle);
+        setCompleteEvent(completeEle);
+        setDeleteEvent(deleteEle);
+}
+
+// Add an event listener on the 'complete' button.
+const setCompleteEvent = (ele) => {
+    ele.addEventListener('click', function() {
+        alert('COMPLETED');
+    })
+}
+
+//Add an event listener on 'delete' button.
+const setDeleteEvent = (ele) => {
+    ele.addEventListener('click', () => {
+        alert('DELETED');
+    })
 }
 
 
