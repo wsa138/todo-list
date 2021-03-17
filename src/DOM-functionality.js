@@ -42,7 +42,7 @@ function displayDOM() {
     // Check if a project has been created before submitting a task.
     const checkCreatedProject = () => {
         if (projectsArr.length === 0) {
-            alert('Please create a project before adding tasks.')
+            alert('Select or create a project before adding tasks.')
             return false;
         } else {
             return true;
@@ -154,10 +154,14 @@ const setCompleteEvent = (ele) => {
 
 // Add an event listener on 'delete' button.
 const setDeleteEvent = (ele) => {
-    ele.addEventListener('click', () => {
+    ele.addEventListener('click', (e) => {
+        e.stopPropagation();
         if (confirm('Are you sure you want to delete this project?')) {
             deleteProjectObj(ele.parentElement.innerText);
             ele.parentElement.remove();
+            let header = document.querySelector('.Tasks-header');
+            console.log(header);
+            removeTasksHeader(header);
         } else {
             return;
         }
@@ -174,6 +178,12 @@ const deleteProjectObj = (eleText) => {
 }
 
 // TASK SECTION FUNCTIONALITY
+
+// Remove tasks section header.
+const removeTasksHeader = (header) => {
+    let header = document.querySelector('.Tasks-header');
+    header.remove();
+}
 
 // Sets header of task section to recently created or selected project.
 const displayProject = (array, projectName) => {
