@@ -70,7 +70,7 @@ function displayDOM() {
         })
     })
 
-    // Submit button event for 'Add Project'..
+    // Handles submit button event for 'Add Project'.
     projSubmit.addEventListener('click', function(e) {
         e.preventDefault();
         removeTasks();
@@ -120,7 +120,7 @@ const addProjectToMenu = (obj) =>{
     addFinishButtons(obj.newEle)
     addDisplayEvent(obj.name, obj.newEle);
 }
-// Add event listener for displaying project name when clicked.
+// Add event listener to display project name when clicked.
 const addDisplayEvent = (name, ele) => {
     ele.addEventListener('click', function() {
         displayProject(projectsArr, name);
@@ -142,6 +142,8 @@ const addFinishButtons = (parentEle) => {
         setDeleteEvent(deleteEle);
 }
 
+// COMPLETE AND DELETE FUNCTIONALITY
+
 // Add an event listener on the 'complete' button.
 // TODO: Add necessary code related to a complete event.
 const setCompleteEvent = (ele) => {
@@ -153,8 +155,12 @@ const setCompleteEvent = (ele) => {
 // Add an event listener on 'delete' button.
 const setDeleteEvent = (ele) => {
     ele.addEventListener('click', () => {
-        deleteProjectObj(ele.parentElement.innerText);
-        ele.parentElement.remove();
+        if (confirm('Are you sure you want to delete this project?')) {
+            deleteProjectObj(ele.parentElement.innerText);
+            ele.parentElement.remove();
+        } else {
+            return;
+        }
     })
 }
 
@@ -167,6 +173,7 @@ const deleteProjectObj = (eleText) => {
     })
 }
 
+// TASK SECTION FUNCTIONALITY
 
 // Sets header of task section to recently created or selected project.
 const displayProject = (array, projectName) => {
