@@ -21,6 +21,11 @@ function displayDOM() {
   const taskDate = document.getElementById('newTaskDate');
   const taskTime = document.getElementById('newTaskTime');
   const taskList = document.getElementById('tasks-list');
+  const projectsMenu = document.getElementById('projects-menu');
+  const taskHead = document.getElementById('tasks-section');
+
+  // Array containing all the projects created and saved to storage.
+  const projectsArr = [];
 
   // Set the current date at the top of the page.
   const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy');
@@ -106,14 +111,6 @@ function displayDOM() {
     displayNone(tasksModal);
     taskForm.reset();
   });
-
-
-  // Document elements
-  const projectsMenu = document.getElementById('projects-menu');
-  const taskHead = document.getElementById('tasks-section');
-
-  // Array containing all the projects created and saved to storage.
-  const projectsArr = [];
 
   // Add a new project to the projects menu.
   const addProjectToMenu = (obj) => {
