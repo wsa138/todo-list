@@ -126,7 +126,7 @@ const addDisplayEvent = (name, ele) => {
   ele.addEventListener('click', function () {
     removeTaskHeader();
     setTaskHeader(name);
-    populateTasks(projectsArr, name)
+    populateTasks(name);
   });
 };
 
@@ -180,8 +180,6 @@ const deleteProjectObj = (eleText) => {
 
 // TASK SECTION FUNCTIONALITY
 
-// TODO: BREAT UP DISPLAYPROJECT FUNCTION
-
 // Remove the task section header.
 const removeTaskHeader = () => {
   taskHead.removeChild(taskHead.childNodes[0]);
@@ -194,25 +192,14 @@ const setTaskHeader = (projectName) => {
   taskHead.prepend(newTaskHeader);
 }
 
-// Sets header of task section to recently created or selected project.
-const displayProject = (array, projectName) => {
-  let taskHead = document.getElementById('tasks-section');
-  taskHead.removeChild(taskHead.childNodes[0]);
-  let taskHeader = document.createElement('h2');
-  taskHeader.className = 'tasks-header';
-  taskHeader.innerHTML = projectName;
-  taskHead.prepend(taskHeader);
-  populateTasks(array, projectName);
-};
-
 // Finds project object with corresponding project name.
-const populateTasks = (array, projectName) => {
+const populateTasks = (projectName) => {
   removeTasks();
   let taskList = document.getElementById('tasks-list');
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].name === projectName) {
+  for (let i = 0; i < projectsArr.length; i++) {
+    if (projectsArr[i].name === projectName) {
       // Creates and appends elements from projects task objects to task section.
-      createTasksMenu(array[i], taskList);
+      createTasksMenu(projectsArr[i], taskList);
     }
   }
 };
