@@ -106,110 +106,111 @@ function displayDOM() {
     displayNone(tasksModal);
     taskForm.reset();
   });
-}
 
-// Document elements
-const projectsMenu = document.getElementById('projects-menu');
-const taskHead = document.getElementById('tasks-section');
 
-// Array containing all the projects created and saved to storage.
-const projectsArr = [];
+  // Document elements
+  const projectsMenu = document.getElementById('projects-menu');
+  const taskHead = document.getElementById('tasks-section');
 
-// Add a new project to the projects menu.
-const addProjectToMenu = (obj) => {
-  projectsMenu.appendChild(obj.newEle);
-  addFinishButtons(obj.newEle);
-  addDisplayEvent(obj.name, obj.newEle);
-};
-// Add event listener to display project name when clicked.
-const addDisplayEvent = (name, ele) => {
-  ele.addEventListener('click', function () {
-    removeTaskHeader();
-    setTaskHeader(name);
-    populateTasks(name);
-  });
-};
+  // Array containing all the projects created and saved to storage.
+  const projectsArr = [];
 
-const addFinishButtons = (parentEle) => {
-  let completeEle = document.createElement('button');
-  completeEle.innerHTML = '&#10003';
-  completeEle.className = 'proj-btn';
-  completeEle.id = 'complete-btn';
-  let deleteEle = document.createElement('button');
-  deleteEle.innerHTML = '&#8722;';
-  deleteEle.className = 'proj-btn';
-  deleteEle.id = 'delete-btn';
-  parentEle.appendChild(completeEle);
-  parentEle.appendChild(deleteEle);
-  setCompleteEvent(completeEle);
-  setDeleteEvent(deleteEle);
-};
+  // Add a new project to the projects menu.
+  const addProjectToMenu = (obj) => {
+    projectsMenu.appendChild(obj.newEle);
+    addFinishButtons(obj.newEle);
+    addDisplayEvent(obj.name, obj.newEle);
+  };
+  // Add event listener to display project name when clicked.
+  const addDisplayEvent = (name, ele) => {
+    ele.addEventListener('click', function () {
+      removeTaskHeader();
+      setTaskHeader(name);
+      populateTasks(name);
+    });
+  };
 
-// COMPLETE AND DELETE FUNCTIONALITY
+  const addFinishButtons = (parentEle) => {
+    let completeEle = document.createElement('button');
+    completeEle.innerHTML = '&#10003';
+    completeEle.className = 'proj-btn';
+    completeEle.id = 'complete-btn';
+    let deleteEle = document.createElement('button');
+    deleteEle.innerHTML = '&#8722;';
+    deleteEle.className = 'proj-btn';
+    deleteEle.id = 'delete-btn';
+    parentEle.appendChild(completeEle);
+    parentEle.appendChild(deleteEle);
+    setCompleteEvent(completeEle);
+    setDeleteEvent(deleteEle);
+  };
 
-// Add an event listener on the 'complete' button.
-// TODO: Add necessary code related to a complete event.
-const setCompleteEvent = (ele) => {
-  ele.addEventListener('click', function () {
-    ele.parentElement.style.backgroundColor = 'green';
-  });
-};
+  // COMPLETE AND DELETE FUNCTIONALITY
 
-// Add an event listener on 'delete' button.
-const setDeleteEvent = (ele) => {
-  ele.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (confirm('Are you sure you want to delete this project?')) {
-      deleteProjectObj(ele.parentElement.innerText);
-      ele.parentElement.remove();
-    } else {
-      return;
-    }
-  });
-};
+  // Add an event listener on the 'complete' button.
+  // TODO: Add necessary code related to a complete event.
+  const setCompleteEvent = (ele) => {
+    ele.addEventListener('click', function () {
+      ele.parentElement.style.backgroundColor = 'green';
+    });
+  };
 
-// Delete project object from projectsArr.
-const deleteProjectObj = (eleText) => {
-  projectsArr.forEach(function (obj) {
-    if (obj.newEle.innerText === eleText) {
-      projectsArr.splice(projectsArr.indexOf(obj), 1);
-      document.querySelector('.tasks-header').remove();
-    }
-  });
-};
+  // Add an event listener on 'delete' button.
+  const setDeleteEvent = (ele) => {
+    ele.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (confirm('Are you sure you want to delete this project?')) {
+        deleteProjectObj(ele.parentElement.innerText);
+        ele.parentElement.remove();
+      } else {
+        return;
+      }
+    });
+  };
 
-// TASK SECTION FUNCTIONALITY
+  // Delete project object from projectsArr.
+  const deleteProjectObj = (eleText) => {
+    projectsArr.forEach(function (obj) {
+      if (obj.newEle.innerText === eleText) {
+        projectsArr.splice(projectsArr.indexOf(obj), 1);
+        document.querySelector('.tasks-header').remove();
+      }
+    });
+  };
 
-// Remove the task section header.
-const removeTaskHeader = () => {
-  taskHead.removeChild(taskHead.childNodes[0]);
-}
-// Set new task section header.
-const setTaskHeader = (projectName) => {
-  let newTaskHeader = document.createElement('h2');
-  newTaskHeader.className = 'tasks-header';
-  newTaskHeader.innerHTML = projectName;
-  taskHead.prepend(newTaskHeader);
-}
+  // TASK SECTION FUNCTIONALITY
 
-// Finds project object with corresponding project name.
-const populateTasks = (projectName) => {
-  removeTasks();
-  let taskList = document.getElementById('tasks-list');
-  for (let i = 0; i < projectsArr.length; i++) {
-    if (projectsArr[i].name === projectName) {
-      // Creates and appends elements from projects task objects to task section.
-      createTasksMenu(projectsArr[i], taskList);
-    }
+  // Remove the task section header.
+  const removeTaskHeader = () => {
+    taskHead.removeChild(taskHead.childNodes[0]);
   }
-};
-
-// Removes tasks elements.
-const removeTasks = () => {
-  let taskList = document.getElementById('tasks-list');
-  while (taskList.firstChild) {
-    taskList.removeChild(taskList.lastChild);
+  // Set new task section header.
+  const setTaskHeader = (projectName) => {
+    let newTaskHeader = document.createElement('h2');
+    newTaskHeader.className = 'tasks-header';
+    newTaskHeader.innerHTML = projectName;
+    taskHead.prepend(newTaskHeader);
   }
+
+  // Finds project object with corresponding project name.
+  const populateTasks = (projectName) => {
+    removeTasks();
+    let taskList = document.getElementById('tasks-list');
+    for (let i = 0; i < projectsArr.length; i++) {
+      if (projectsArr[i].name === projectName) {
+        // Creates and appends elements from projects task objects to task section.
+        createTasksMenu(projectsArr[i], taskList);
+      }
+    }
+  };
+
+  // Removes tasks elements.
+  const removeTasks = () => {
+    let taskList = document.getElementById('tasks-list');
+    while (taskList.firstChild) {
+      taskList.removeChild(taskList.lastChild);
+    }
+  };
 };
 
 export { displayDOM };
