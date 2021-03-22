@@ -5,7 +5,8 @@ import { addNewProject } from './projects.js';
 import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js';
 
 function displayDOM() {
-  // Document references:
+
+  // DOCUMENT REFERENCES
   const dateHeader = document.getElementById('date');
   const addProject = document.getElementById('addProject');
   const projectsModal = document.querySelector('.projects-modal');
@@ -27,29 +28,9 @@ function displayDOM() {
   // Array containing all the projects created and saved to storage.
   const projectsArr = [];
 
-  // Set the current date at the top of the page.
+  // Sets the current date at the top of the page.
   const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy');
   dateHeader.innerHTML = `${formattedDate}`;
-
-  // Function changes an elements display value to 'none'.
-  const displayNone = (element) => {
-    element.style.display = 'none';
-  };
-
-  // Function changes an elements display value to provided value.
-  const changeDisplay = (element, display) => {
-    element.style.display = display;
-  };
-
-  // Check if a project has been created before submitting a task.
-  const checkCreatedProject = () => {
-    if (projectsArr.length === 0) {
-      alert('Select or create a project before adding tasks.');
-      return false;
-    } else {
-      return true;
-    }
-  };
 
   // PROJECT AND TASK MODAL EVENT LISTENERS
 
@@ -127,6 +108,28 @@ function displayDOM() {
     });
   };
 
+  // Function changes an elements display value to 'none'.
+  const displayNone = (element) => {
+    element.style.display = 'none';
+  };
+
+  // Function changes an elements display value to provided value.
+  const changeDisplay = (element, display) => {
+    element.style.display = display;
+  };
+
+  // Check if a project has been created before submitting a task.
+  const checkCreatedProject = () => {
+    if (projectsArr.length === 0) {
+      alert('Select or create a project before adding tasks.');
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  // COMPLETE AND DELETE BUTTON FUNCTIONALITY
+
   const addFinishButtons = (parentEle) => {
     let completeEle = document.createElement('button');
     completeEle.innerHTML = '&#10003';
@@ -141,8 +144,6 @@ function displayDOM() {
     setCompleteEvent(completeEle);
     setDeleteEvent(deleteEle);
   };
-
-  // COMPLETE AND DELETE FUNCTIONALITY
 
   // Add an event listener on the 'complete' button.
   // TODO: Add necessary code related to a complete event.
@@ -167,20 +168,28 @@ function displayDOM() {
 
   // Delete project object from projectsArr.
   const deleteProjectObj = (eleText) => {
+    // Local scope taskHeader.
+    let taskHeader = document.querySelector('.tasks-header');
     projectsArr.forEach(function (obj) {
       if (obj.newEle.innerText === eleText) {
         projectsArr.splice(projectsArr.indexOf(obj), 1);
-        document.querySelector('.tasks-header').remove();
+        // Checks if removed project is currently displayed, and if so removes it.
+        if (obj.name === taskHeader.innerHTML) {
+          taskHeader.remove();
+        }
       }
     });
   };
 
   // TASK SECTION FUNCTIONALITY
 
-  // Remove the task section header.
+  // Remove the task section header only if it is a project name(H2 element).
   const removeTaskHeader = () => {
-    taskHead.removeChild(taskHead.childNodes[0]);
+    if (taskHead.childNodes[0].tagName === 'H2') {
+      taskHead.removeChild(taskHead.childNodes[0]);
+    }
   }
+
   // Set new task section header.
   const setTaskHeader = (projectName) => {
     let newTaskHeader = document.createElement('h2');
