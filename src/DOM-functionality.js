@@ -176,6 +176,7 @@ function displayDOM() {
         // Checks if removed project is currently displayed, and if so removes it.
         if (obj.name === taskHeader.innerHTML) {
           taskHeader.remove();
+          removeTasks();
         }
       }
     });
