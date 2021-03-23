@@ -14,7 +14,7 @@ const addTaskProject = (parentProjectTaskArray, taskObj) => {
     parentProjectTaskArray.push(taskObj);
 }
 
-// Iterate over a projects tasks and create DOM elements in task section.
+// Iterate over a projects tasks, creates DOM elements and appends them to tasks section.
 const createTasksMenu = (projectObj, taskList) => {
     projectObj.projectTasksArr.forEach(function(taskObj) {
         let newTask = document.createElement('div');
