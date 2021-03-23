@@ -61,6 +61,7 @@ function displayDOM() {
     addNewProject(newProjectInput.value, projectsArr);
     // Adds the project to the projects menu.
     let newestProj = projectsArr[projectsArr.length - 1];
+    console.log(newestProj);
     addProjectToMenu(newestProj);
     // Sets task header as new project's name.
     removeTaskHeader();
@@ -82,7 +83,6 @@ function displayDOM() {
         if (projectsArr[i].name === currentProject) {
           // Add new task object to current project array of task objects.
           addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
-          console.log(projectsArr[i]);
           // Re-creates current projects task list.
           createTasksMenu(projectsArr[i], taskList);
           break;
@@ -95,10 +95,15 @@ function displayDOM() {
 
   // Add a new project to the projects menu.
   const addProjectToMenu = (obj) => {
-    projectsMenu.appendChild(obj.newEle);
-    addFinishButtons(obj.newEle);
-    addDisplayEvent(obj.name, obj.newEle);
+    let newEle = document.createElement('li');
+    console.log(newEle);
+    newEle.innerHTML = obj.name;
+    newEle.className = 'project';
+    projectsMenu.appendChild(newEle);
+    addFinishButtons(newEle);
+    addDisplayEvent(name, newEle);
   };
+
   // Add event listener to display project name when clicked.
   const addDisplayEvent = (name, ele) => {
     ele.addEventListener('click', function () {
