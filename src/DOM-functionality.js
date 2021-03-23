@@ -99,7 +99,7 @@ function displayDOM() {
     newEle.className = 'project';
     projectsMenu.appendChild(newEle);
     addFinishButtons(newEle);
-    addDisplayEvent(name, newEle);
+    addDisplayEvent(obj.name, newEle);
   };
 
   // Add event listener to display project name when clicked.
