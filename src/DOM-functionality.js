@@ -98,8 +98,9 @@ function displayDOM() {
     newEle.innerHTML = obj.name;
     newEle.className = 'project';
     projectsMenu.appendChild(newEle);
-    addFinishButtons(newEle);
+    addFinishButtons(newEle, obj);
     addDisplayEvent(obj.name, newEle);
+    obj.element = newEle;
   };
 
   // Add event listener to display project name when clicked.
@@ -133,7 +134,7 @@ function displayDOM() {
 
   // COMPLETE AND DELETE BUTTON FUNCTIONALITY
 
-  const addFinishButtons = (parentEle) => {
+  const addFinishButtons = (parentEle, obj) => {
     let completeEle = document.createElement('button');
     completeEle.innerHTML = '&#10003';
     completeEle.className = 'proj-btn';
@@ -145,7 +146,7 @@ function displayDOM() {
     parentEle.appendChild(completeEle);
     parentEle.appendChild(deleteEle);
     setCompleteEvent(completeEle);
-    setDeleteEvent(deleteEle);
+    setDeleteEvent(deleteEle, obj);
   };
 
   // Add an event listener on the 'complete' button.
@@ -157,11 +158,12 @@ function displayDOM() {
   };
 
   // Add an event listener on 'delete' button.
-  const setDeleteEvent = (ele) => {
+  const setDeleteEvent = (ele, obj) => {
     ele.addEventListener('click', (e) => {
       e.stopPropagation();
       if (confirm('Are you sure you want to delete this project?')) {
-        deleteProjectObj(ele.parentElement.innerText);
+        deleteProjectObj(obj);
+        console.log('test');
         ele.parentElement.remove();
       } else {
         return;
@@ -170,14 +172,14 @@ function displayDOM() {
   };
 
   // Delete project object from projectsArr.
-  const deleteProjectObj = (eleText) => {
+  const deleteProjectObj = (obj) => {
     // Local scope taskHeader.
     let taskHeader = document.querySelector('.tasks-header');
-    projectsArr.forEach(function (obj) {
-      if (obj.newEle.innerText === eleText) {
-        projectsArr.splice(projectsArr.indexOf(obj), 1);
-        // Checks if removed project is currently displayed, and if so removes it.
-        if (obj.name === taskHeader.innerHTML) {
+    projectsArr.forEach(function (o) {
+      if (o === obj) {
+        projectsArr.splice(projectsArr.indexOf(o), 1);
+        // Check if removed project is currently displayed, and if so remove it.
+        if (o.name === taskHeader.innerHTML) {
           taskHeader.remove();
           removeTasks();
         }
