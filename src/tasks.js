@@ -9,11 +9,6 @@ const taskFactory = (name, date, time) => {
     }
 }
 
-// Function pushes task object to parent project array.
-const addTaskProject = (parentProjectTaskArray, taskObj) => {
-    parentProjectTaskArray.push(taskObj);
-}
-
 // Iterate over a projects tasks, creates DOM elements and appends them to tasks section.
 const createTasksMenu = (projectObj, taskList) => {
     projectObj.projectTasksArr.forEach(function(taskObj) {
@@ -39,15 +34,4 @@ const createTasksMenu = (projectObj, taskList) => {
     })
 }
 
-export { taskFactory, addTaskProject, createTasksMenu }
-
-/*
-    -const newTask = document.createElement('div');
-    -newTask.className = 'task'
-    -const newTaskName = document.createElement('div');
-    -newTaskName.className = 'task-name';
-    -newTaskName.innerHTML = name;
-    -const newTaskDateTime = document.createElement('div');
-    -newTaskDateTime.className = 'date-time';
-    -newTaskDateTime.innerHTML= dateTime;
-    */
+export { taskFactory, createTasksMenu }

@@ -2,7 +2,7 @@
 
 import { format } from 'date-fns';
 import { addNewProject } from './projects.js';
-import { taskFactory, addTaskProject, createTasksMenu } from './tasks.js';
+import { taskFactory, createTasksMenu } from './tasks.js';
 
 function displayDOM() {
 
@@ -61,7 +61,6 @@ function displayDOM() {
     addNewProject(newProjectInput.value, projectsArr);
     // Adds the project to the projects menu.
     let newestProj = projectsArr[projectsArr.length - 1];
-    console.log(newestProj);
     addProjectToMenu(newestProj);
     // Sets task header as new project's name.
     removeTaskHeader();
@@ -82,7 +81,7 @@ function displayDOM() {
       for (let i = 0; i < projectsArr.length; i++) {
         if (projectsArr[i].name === currentProject) {
           // Add new task object to current project array of task objects.
-          addTaskProject(projectsArr[i].projectTasksArr, newTaskObj);
+          projectsArr[i].projectTasksArr.push(newTaskObj);
           // Re-creates current projects task list.
           createTasksMenu(projectsArr[i], taskList);
           break;
@@ -96,7 +95,6 @@ function displayDOM() {
   // Add a new project to the projects menu.
   const addProjectToMenu = (obj) => {
     let newEle = document.createElement('li');
-    console.log(newEle);
     newEle.innerHTML = obj.name;
     newEle.className = 'project';
     projectsMenu.appendChild(newEle);

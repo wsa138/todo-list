@@ -2,7 +2,10 @@
 
 // Factory that creates projects objects.
 const projectFactory = (name) => {
-    return { name: name };
+    return { 
+        name: name,
+        projectTasksArr: []
+    };
 }
 
 // Function takes necessary input to create a new project.
