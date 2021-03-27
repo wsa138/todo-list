@@ -56,6 +56,9 @@ function displayDOM() {
   // Handles submit button event for 'Add Project'.
   projSubmit.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!checkLength(newProjectInput.value)) {
+      return;
+    };
     removeTasks();
     // Creates project object and appends to projects array.
     addNewProject(newProjectInput.value, projectsArr);
@@ -73,6 +76,9 @@ function displayDOM() {
   // projects array of task objects, and recreates the task menu.
   taskSubmit.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!checkLength(taskName.value)) {
+      return;
+    };
     if (checkCreatedProject()) {
       removeTasks();
       let newTaskObj = taskFactory(taskName.value, taskDate.value, taskTime.value);
@@ -223,6 +229,26 @@ function displayDOM() {
       taskList.removeChild(taskList.lastChild);
     }
   };
+
+
+  // FUNCTIONS HANDLING CHECK FOR PROPER INPUT LENGTH
+
+  //Returns true if the input value is > 0.
+  const checkLength = (nameValue) => {
+    if (nameValue.length < 1) {
+      alert('Please enter a name');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
+
+
+
+
+
 };
 
 export { displayDOM };
