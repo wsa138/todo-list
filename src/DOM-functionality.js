@@ -88,8 +88,9 @@ function displayDOM() {
         if (projectsArr[i].name === currentProject) {
           // Add new task object to current project array of task objects.
           projectsArr[i].projectTasksArr.push(newTaskObj);
+          console.log(projectsArr[i].projectTasksArr);
           // Re-creates current projects task list.
-          createTasksMenu(projectsArr[i], taskList);
+          populateTasks(projectsArr[i].name);
           break;
         }
       }
@@ -104,7 +105,7 @@ function displayDOM() {
     newEle.innerHTML = obj.name;
     newEle.className = 'project';
     projectsMenu.appendChild(newEle);
-    addFinishButtons(newEle, obj);
+    addProjectFinish(newEle, obj);
     addDisplayEvent(obj.name, newEle);
     obj.element = newEle;
   };
@@ -138,9 +139,9 @@ function displayDOM() {
     }
   };
 
-  // COMPLETE AND DELETE BUTTON FUNCTIONALITY
+  // COMPLETE AND DELETE BUTTON FUNCTIONALITY FOR PROJECTS
 
-  const addFinishButtons = (parentEle, obj) => {
+  const addProjectFinish = (parentEle, obj) => {
     let completeEle = document.createElement('button');
     completeEle.innerHTML = '&#10003';
     completeEle.className = 'proj-btn';
@@ -193,6 +194,7 @@ function displayDOM() {
     });
   };
 
+
   // TASK SECTION FUNCTIONALITY
 
   // Remove the task section header only if it is a project name(H2 element).
@@ -216,6 +218,9 @@ function displayDOM() {
     let taskList = document.getElementById('tasks-list');
     for (let i = 0; i < projectsArr.length; i++) {
       if (projectsArr[i].name === projectName) {
+        //TODO: Finish creating and adding addTaskFinish
+        console.log('test')
+        addTaskFinish(projectsArr[i].projectTasksArr)
         // Creates and appends elements from projects task objects to task section.
         createTasksMenu(projectsArr[i], taskList);
       }
@@ -229,6 +234,14 @@ function displayDOM() {
       taskList.removeChild(taskList.lastChild);
     }
   };
+
+
+  // COMPLETE AND DELETE BUTTON FUNCITONALITY FOR TASKS
+
+  // Function to add a complete and delete button to each task when it is displayed.
+  const addTaskFinish = (projectTasksArr) => {
+    console.log(projectTasksArr);
+  }
 
 
   // FUNCTIONS HANDLING CHECK FOR PROPER INPUT LENGTH
