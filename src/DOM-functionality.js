@@ -88,9 +88,8 @@ function displayDOM() {
         if (projectsArr[i].name === currentProject) {
           // Add new task object to current project array of task objects.
           projectsArr[i].projectTasksArr.push(newTaskObj);
-          console.log(projectsArr[i].projectTasksArr);
           // Re-creates current projects task list.
-          populateTasks(projectsArr[i].name);
+          populateTasks(projectsArr[i]);
           break;
         }
       }
@@ -106,16 +105,16 @@ function displayDOM() {
     newEle.className = 'project';
     projectsMenu.appendChild(newEle);
     addProjectFinish(newEle, obj);
-    addDisplayEvent(obj.name, newEle);
+    addDisplayEvent(obj, newEle);
     obj.element = newEle;
   };
 
   // Add event listener to display project name when clicked.
-  const addDisplayEvent = (name, ele) => {
+  const addDisplayEvent = (obj, ele) => {
     ele.addEventListener('click', function () {
       removeTaskHeader();
-      setTaskHeader(name);
-      populateTasks(name);
+      setTaskHeader(obj.name);
+      populateTasks(obj);
     });
   };
 
@@ -170,7 +169,6 @@ function displayDOM() {
       e.stopPropagation();
       if (confirm('Are you sure you want to delete this project?')) {
         deleteProjectObj(obj);
-        console.log('test');
         ele.parentElement.remove();
       } else {
         return;
@@ -213,18 +211,16 @@ function displayDOM() {
   }
 
   // Finds project object with corresponding project name.
-  const populateTasks = (projectName) => {
+  const populateTasks = (project) => {
     removeTasks();
     let taskList = document.getElementById('tasks-list');
-    for (let i = 0; i < projectsArr.length; i++) {
-      if (projectsArr[i].name === projectName) {
-        //TODO: Finish creating and adding addTaskFinish
-        console.log('test')
-        addTaskFinish(projectsArr[i].projectTasksArr)
-        // Creates and appends elements from projects task objects to task section.
-        createTasksMenu(projectsArr[i], taskList);
-      }
-    }
+    let projectInx = projectsArr.indexOf(project);
+    //TODO: Finish creating and adding addTaskFinish
+    console.log('test')
+    console.log(projectsArr[projectInx].projectTasksArr)
+    // addTaskFinish(projectsArr[projectInx].projectTasksArr)
+    // Creates and appends elements from projects task objects to task section.
+    createTasksMenu(projectsArr[projectInx], taskList);
   };
 
   // Removes tasks elements.
@@ -255,12 +251,6 @@ function displayDOM() {
       return true;
     }
   }
-
-
-
-
-
-
 
 };
 
