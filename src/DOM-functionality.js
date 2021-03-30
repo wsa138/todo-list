@@ -146,7 +146,7 @@ function displayDOM() {
     completeEle.className = 'proj-btn';
     completeEle.id = 'complete-btn';
     let deleteEle = document.createElement('button');
-    deleteEle.innerHTML = '&#8722;';
+    deleteEle.innerHTML = '&#8722';
     deleteEle.className = 'proj-btn';
     deleteEle.id = 'delete-btn';
     parentEle.appendChild(completeEle);
@@ -226,6 +226,7 @@ function displayDOM() {
       taskList.removeChild(taskList.lastChild);
     }
   };
+  
 
   // FUNCTIONS HANDLING CHECK FOR PROPER INPUT LENGTH
 

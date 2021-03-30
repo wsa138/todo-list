@@ -11,7 +11,8 @@ const taskFactory = (name, date, time) => {
 
 // Iterate over a projects tasks, creates DOM elements and appends them to tasks section.
 const createTasksMenu = (projectObj, taskList) => {
-    projectObj.projectTasksArr.forEach(function(taskObj) {
+    let taskArr = projectObj.projectTasksArr
+    taskArr.forEach(function(taskObj) {
         let newTask = document.createElement('div');
         let newTaskName = document.createElement('div');
         let newTaskDate = document.createElement('div');
@@ -30,6 +31,8 @@ const createTasksMenu = (projectObj, taskList) => {
         newTaskName.innerHTML = taskObj.name;
         newTaskDate.innerHTML = taskObj.date;
         newTaskTime.innerHTML = taskObj.time;
+        taskComplete.innerHTML = '&#10003';
+        taskDelete.innerHTML = '&#8722';
 
         newTask.appendChild(newTaskName);
         newTask.appendChild(newTaskDate);
@@ -37,6 +40,17 @@ const createTasksMenu = (projectObj, taskList) => {
         newTask.appendChild(taskComplete);
         newTask.appendChild(taskDelete);
         taskList.appendChild(newTask);
+
+        deleteEvent(taskDelete, newTask, taskObj, taskArr);
+    })
+}
+
+const deleteEvent = (ele, parent, obj, arr) => {
+    ele.addEventListener('click', () => {
+        parent.remove();
+        let objIndex = arr.indexOf(obj);
+        arr.splice(objIndex, 1);
+        console.log(arr);
     })
 }
 

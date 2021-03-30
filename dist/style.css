@@ -10,6 +10,8 @@ html, body {
     flex-wrap: wrap;
 }
 
+/* Header Styling */
+
 header {
     flex-basis: auto;
     width: 100%;
@@ -26,6 +28,8 @@ h1 {
     font-size: 3rem;
     margin: .2rem 0 .2rem 0;
 }
+
+/* Projects Section Styling */
 
 nav {
     background-color: rgb(221, 221, 221);
@@ -77,10 +81,7 @@ hr {
     display: none;
 }
 
-label {
-    display: none;
-    font-size: 3rem;
-}
+/* Modal Styling */
 
 .projects-modal {
     width: 100%;
@@ -159,6 +160,8 @@ input {
     cursor: pointer;
 }
 
+/* Tasks Section Styling */
+
 #tasks-section {
     background-color: rgb(187, 187, 186);
     flex-grow: 1;
@@ -194,6 +197,8 @@ input {
     text-align: center;
 }
 
+/* Projects Styling */
+
 .project {
     margin-top: .5rem;
     border: solid;
@@ -226,22 +231,28 @@ input {
     line-height: 1rem;
 }
 
+/* Tasks styling */
+
 #task-complete {
+    padding: 0;
     height: 2rem;
     width: 2rem;
     cursor: pointer;
     font-size: 1.5rem;
     font-weight: 900;
     line-height: 1rem;
+    background-color: green;
 }
 
 #task-delete {
+    padding: 0;
     height: 2rem;
     width: 2rem;
     cursor: pointer;
     font-size: 1.5rem;
     font-weight: 900;
     line-height: 1rem; 
+    background-color: red;
 }
 
 
