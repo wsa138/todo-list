@@ -215,10 +215,6 @@ function displayDOM() {
     removeTasks();
     let taskList = document.getElementById('tasks-list');
     let projectInx = projectsArr.indexOf(project);
-    //TODO: Finish creating and adding addTaskFinish
-    console.log('test')
-    console.log(projectsArr[projectInx].projectTasksArr)
-    // addTaskFinish(projectsArr[projectInx].projectTasksArr)
     // Creates and appends elements from projects task objects to task section.
     createTasksMenu(projectsArr[projectInx], taskList);
   };
@@ -230,15 +226,6 @@ function displayDOM() {
       taskList.removeChild(taskList.lastChild);
     }
   };
-
-
-  // COMPLETE AND DELETE BUTTON FUNCITONALITY FOR TASKS
-
-  // Function to add a complete and delete button to each task when it is displayed.
-  const addTaskFinish = (projectTasksArr) => {
-    console.log(projectTasksArr);
-  }
-
 
   // FUNCTIONS HANDLING CHECK FOR PROPER INPUT LENGTH
 

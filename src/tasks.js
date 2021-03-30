@@ -16,20 +16,26 @@ const createTasksMenu = (projectObj, taskList) => {
         let newTaskName = document.createElement('div');
         let newTaskDate = document.createElement('div');
         let newTaskTime = document.createElement('div');
+        let taskComplete = document.createElement('button');
+        let taskDelete = document.createElement('button');
 
         newTask.className = 'task';
         newTaskName.className = 'task-name';
         newTaskDate.className = 'task-date';
         newTaskTime.className = 'task-time';
+        
+        taskComplete.id = 'task-complete';
+        taskDelete.id = 'task-delete';
 
         newTaskName.innerHTML = taskObj.name;
         newTaskDate.innerHTML = taskObj.date;
         newTaskTime.innerHTML = taskObj.time;
 
-
         newTask.appendChild(newTaskName);
         newTask.appendChild(newTaskDate);
         newTask.appendChild(newTaskTime);
+        newTask.appendChild(taskComplete);
+        newTask.appendChild(taskDelete);
         taskList.appendChild(newTask);
     })
 }
