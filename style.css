@@ -106,8 +106,8 @@ hr {
 }
 
 .modal-content {
-    width: 500px;
-    height: 300px;
+    width: 30rem;
+    height: 25rem;
     background-color: white;
     border-radius: 4px;
     text-align: center;
@@ -158,6 +158,21 @@ input {
     font-size: 2rem;
     transform: rotate(45deg);
     cursor: pointer;
+}
+
+#task-form {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.task-ele {
+    margin-top: .5rem;
+}
+
+#task-form-header {
+    font-size: 1.5rem;
+    margin: .5rem 0 .5rem 0;
 }
 
 /* Tasks Section Styling */
