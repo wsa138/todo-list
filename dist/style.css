@@ -105,7 +105,16 @@ hr {
     align-items: center;
 }
 
-.modal-content {
+#project-modal-content {
+    width: 30rem;
+    height: 18rem;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+}
+
+#task-modal-content {
     width: 30rem;
     height: 25rem;
     background-color: white;
