@@ -17,6 +17,7 @@ const createTasksMenu = (projectObj, taskList) => {
         let newTaskName = document.createElement('div');
         let newTaskDate = document.createElement('div');
         let newTaskTime = document.createElement('div');
+        let finishContainer = document.createElement('div');
         let taskComplete = document.createElement('button');
         let taskDelete = document.createElement('button');
 
@@ -25,6 +26,7 @@ const createTasksMenu = (projectObj, taskList) => {
         newTaskDate.className = 'task-date';
         newTaskTime.className = 'task-time';
         
+        finishContainer.id = 'finish-container'
         taskComplete.id = 'task-complete';
         taskDelete.id = 'task-delete';
 
@@ -37,8 +39,9 @@ const createTasksMenu = (projectObj, taskList) => {
         newTask.appendChild(newTaskName);
         newTask.appendChild(newTaskDate);
         newTask.appendChild(newTaskTime);
-        newTask.appendChild(taskComplete);
-        newTask.appendChild(taskDelete);
+        finishContainer.appendChild(taskComplete);
+        finishContainer.appendChild(taskDelete);
+        newTask.appendChild(finishContainer);
         taskList.appendChild(newTask);
 
         completeEvent(taskComplete);
@@ -48,7 +51,7 @@ const createTasksMenu = (projectObj, taskList) => {
 
 const completeEvent = (ele) => {
     ele.addEventListener('click', () => {
-        ele.parentElement.classList.toggle('completed')
+        ele.parentElement.parentElement.classList.toggle('completed')
     })
 }
 
@@ -57,6 +60,7 @@ const deleteEvent = (ele, parent, obj, arr) => {
         parent.remove();
         let objIndex = arr.indexOf(obj);
         arr.splice(objIndex, 1);
+        console.log(arr);
     })
 }
 
