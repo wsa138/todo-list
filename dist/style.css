@@ -255,5 +255,7 @@ input {
     background-color: red;
 }
 
-
+.completed {
+    background-color: purple;
+}
 

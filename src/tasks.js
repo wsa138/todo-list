@@ -41,7 +41,14 @@ const createTasksMenu = (projectObj, taskList) => {
         newTask.appendChild(taskDelete);
         taskList.appendChild(newTask);
 
+        completeEvent(taskComplete);
         deleteEvent(taskDelete, newTask, taskObj, taskArr);
+    })
+}
+
+const completeEvent = (ele) => {
+    ele.addEventListener('click', () => {
+        ele.parentElement.classList.toggle('completed')
     })
 }
 
@@ -50,7 +57,6 @@ const deleteEvent = (ele, parent, obj, arr) => {
         parent.remove();
         let objIndex = arr.indexOf(obj);
         arr.splice(objIndex, 1);
-        console.log(arr);
     })
 }
 
