@@ -55,7 +55,7 @@ li {
 }
 
 .project:hover {
-    background-color: rgb(197, 197, 197);
+    cursor: pointer;
 }
 
 a {
@@ -278,6 +278,9 @@ input {
     line-height: 1rem; 
     background-color: red;
 }
+
+
+/* Completed Element Styling */
 
 .completed {
     background-color: purple;

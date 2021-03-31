@@ -21,6 +21,7 @@ function displayDOM() {
   const taskName = document.getElementById('newTaskName');
   const taskDate = document.getElementById('newTaskDate');
   const taskTime = document.getElementById('newTaskTime');
+  const taskNotes = document.getElementById('newTaskNotes')
   const taskList = document.getElementById('tasks-list');
   const projectsMenu = document.getElementById('projects-menu');
   const taskHead = document.getElementById('tasks-section');
@@ -81,7 +82,7 @@ function displayDOM() {
     };
     if (checkCreatedProject()) {
       removeTasks();
-      let newTaskObj = taskFactory(taskName.value, taskDate.value, taskTime.value);
+      let newTaskObj = taskFactory(taskName.value, taskDate.value, taskTime.value, taskNotes.value);
       let currentProject = document.querySelector('.tasks-header').innerHTML;
       // Find current projects object in projectsArr.
       for (let i = 0; i < projectsArr.length; i++) {
@@ -159,7 +160,7 @@ function displayDOM() {
   // TODO: Add necessary code related to a complete event.
   const setCompleteEvent = (ele) => {
     ele.addEventListener('click', function () {
-      ele.parentElement.style.backgroundColor = 'green';
+      ele.parentElement.classList.toggle('completed');
     });
   };
 
