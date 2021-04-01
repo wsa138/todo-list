@@ -82,7 +82,8 @@ function displayDOM() {
     };
     if (checkCreatedProject()) {
       removeTasks();
-      let newTaskObj = taskFactory(taskName.value, taskDate.value, taskTime.value, taskNotes.value);
+      let meridianTime = toMeridian(taskTime.value);
+      let newTaskObj = taskFactory(taskName.value, taskDate.value, meridianTime, taskNotes.value);
       let currentProject = document.querySelector('.tasks-header').innerHTML;
       // Find current projects object in projectsArr.
       for (let i = 0; i < projectsArr.length; i++) {
@@ -227,11 +228,8 @@ function displayDOM() {
       taskList.removeChild(taskList.lastChild);
     }
   };
-  
 
-  // FUNCTIONS HANDLING CHECK FOR PROPER INPUT LENGTH
-
-  //Returns true if the input value is > 0.
+  //Checks for proper input length, returns true if the input value is > 0.
   const checkLength = (nameValue) => {
     if (nameValue.length < 1) {
       alert('Please enter a name');
@@ -241,6 +239,20 @@ function displayDOM() {
     }
   }
 
+  // Converts HTML time value to meridian time.
+  const toMeridian = (time) => {
+    let timeSplit = time.split(':');
+    let hour = timeSplit[0];
+    let minute = timeSplit[1];
+    let meridian = '';
+    if (hour > 12) {
+      meridian = 'PM';
+      return (hour - 12 + ':' + minute + ' ' + meridian);
+    } else {
+      meridian = 'AM';
+      return (hour + ':' + minute + ' ' + meridian);
+    }
+  }
 };
 
 export { displayDOM };
