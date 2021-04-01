@@ -6,8 +6,12 @@ html, body {
 }
 
 #content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1.7fr;
+    grid-template-areas: 
+        "header header header"
+        "projects tasks tasks";
 }
 
 /* Header Styling */
@@ -22,6 +26,7 @@ header {
     border-bottom: 2px solid;
     background-color: rgb(223, 0, 0);
     color: white;
+    grid-area: header;
 }
 
 h1 {
@@ -31,7 +36,7 @@ h1 {
 
 /* Projects Section Styling */
 
-nav {
+#projects-nav {
     background-color: rgb(221, 221, 221);
     width: 25rem;
     height: 100vh;
@@ -192,6 +197,7 @@ input {
     display: flex;
     flex-direction: column;
     align-content: center;
+    grid-area: tasks;
 }
 
 #addTaskBtn {
@@ -209,16 +215,64 @@ input {
     font-size: 1.5rem;
     padding: .5rem 0 .5rem 3rem;
     display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 100%;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .8fr 1.6fr .6fr;
+    grid-template-areas:
+        "date time . finish"
+        "name name name name"
+        "notes notes notes notes";
 }
 
-.date-time {
-    justify-self: end;
+.task-name {
+    background-color: rosybrown;
+    grid-area: name;
+}
+
+.task-date {
+    background-color: royalblue;
+    grid-area: date;
+}
+
+.task-time {
+    background-color: sandybrown;
+    grid-area: time;
+}
+
+.task-notes {
+    background-color: seagreen;
+    grid-area: notes;
+}
+
+.finish-container {
+    background-color:snow;
+    grid-area: finish;
 }
 
 .tasks-header {
     text-align: center;
+}
+
+#task-complete {
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1rem;
+    background-color: green;
+}
+
+#task-delete {
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1rem; 
+    background-color: red;
 }
 
 /* Projects Styling */
@@ -255,29 +309,6 @@ input {
     line-height: 1rem;
 }
 
-/* Tasks styling */
-
-#task-complete {
-    padding: 0;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1rem;
-    background-color: green;
-}
-
-#task-delete {
-    padding: 0;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1rem; 
-    background-color: red;
-}
 
 
 /* Completed Element Styling */

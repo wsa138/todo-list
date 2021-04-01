@@ -28,8 +28,8 @@ const createTasksMenu = (projectObj, taskList) => {
         newTaskDate.className = 'task-date';
         newTaskTime.className = 'task-time';
         newTaskNotes.className = 'task-notes';
+        finishContainer.className = 'finish-container'
         
-        finishContainer.id = 'finish-container'
         taskComplete.id = 'task-complete';
         taskDelete.id = 'task-delete';
 
