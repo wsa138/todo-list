@@ -18,12 +18,11 @@ html, body {
 
 header {
     flex-basis: auto;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding: .5rem 1rem .5rem 1rem;
-    border-bottom: 2px solid;
+    border-bottom: 2px solid black;
     background-color: rgb(223, 0, 0);
     color: white;
     grid-area: header;
@@ -38,7 +37,6 @@ h1 {
 
 #projects-nav {
     background-color: rgb(221, 221, 221);
-    width: 25rem;
     height: 100vh;
 }
 
@@ -193,11 +191,16 @@ input {
 
 #tasks-section {
     background-color: rgb(187, 187, 186);
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-content: center;
     grid-area: tasks;
+}
+
+#tasks-list {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 #addTaskBtn {
@@ -212,6 +215,7 @@ input {
 }
 
 .task {
+    margin: .25rem;
     font-size: 1.5rem;
     padding: .5rem 0 .5rem 3rem;
     display: grid;
@@ -222,6 +226,7 @@ input {
         "date time . finish"
         "name name name name"
         "notes notes notes notes";
+    border: solid 2px;
 }
 
 .task-name {
@@ -245,8 +250,9 @@ input {
 }
 
 .finish-container {
-    background-color:snow;
+    background-color:rgb(231, 121, 121);
     grid-area: finish;
+    text-align: end;
 }
 
 .tasks-header {
