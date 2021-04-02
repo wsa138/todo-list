@@ -169,7 +169,8 @@ function displayDOM() {
   // Add an event listener on the 'complete' button.
   // TODO: Add necessary code related to a complete event.
   const setCompleteEvent = (ele) => {
-    ele.addEventListener('click', function () {
+    ele.addEventListener('click', (e) => {
+      e.stopPropagation();
       ele.parentElement.parentElement.classList.toggle('completed');
     });
   };
