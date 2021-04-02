@@ -102,13 +102,15 @@ function displayDOM() {
 
   // Add a new project to the projects menu.
   const addProjectToMenu = (obj) => {
-    let newEle = document.createElement('li');
-    newEle.innerHTML = obj.name;
-    newEle.className = 'project';
-    projectsMenu.appendChild(newEle);
-    addProjectFinish(newEle, obj);
-    addDisplayEvent(obj, newEle);
-    obj.element = newEle;
+    let newProjContainer = document.createElement('li');
+    let newProj = document.createElement('div');
+    newProj.innerHTML = obj.name;
+    newProjContainer.className = 'project';
+    newProjContainer.appendChild(newProj);
+    projectsMenu.appendChild(newProjContainer);
+    addProjectFinish(newProjContainer, obj);
+    addDisplayEvent(obj, newProjContainer);
+    obj.element = newProjContainer;
   };
 
   // Add event listener to display project name when clicked.
@@ -151,8 +153,11 @@ function displayDOM() {
     deleteEle.innerHTML = '&#8722';
     deleteEle.className = 'proj-btn';
     deleteEle.id = 'delete-btn';
-    parentEle.appendChild(completeEle);
-    parentEle.appendChild(deleteEle);
+    let finishContainer = document.createElement('div');
+    finishContainer.className = 'proj-finish-container';
+    parentEle.appendChild(finishContainer);
+    finishContainer.appendChild(completeEle);
+    finishContainer.appendChild(deleteEle);
     setCompleteEvent(completeEle);
     setDeleteEvent(deleteEle, obj);
   };
@@ -161,7 +166,7 @@ function displayDOM() {
   // TODO: Add necessary code related to a complete event.
   const setCompleteEvent = (ele) => {
     ele.addEventListener('click', function () {
-      ele.parentElement.classList.toggle('completed');
+      ele.parentElement.parentElement.classList.toggle('completed');
     });
   };
 
@@ -171,7 +176,7 @@ function displayDOM() {
       e.stopPropagation();
       if (confirm('Are you sure you want to delete this project?')) {
         deleteProjectObj(obj);
-        ele.parentElement.remove();
+        ele.parentElement.parentElement.remove();
       } else {
         return;
       }
