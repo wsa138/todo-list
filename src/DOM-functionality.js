@@ -104,6 +104,7 @@ function displayDOM() {
   const addProjectToMenu = (obj) => {
     let newProjContainer = document.createElement('li');
     let newProj = document.createElement('div');
+    newProj.className = 'project-text';
     newProj.innerHTML = obj.name;
     newProjContainer.className = 'project';
     newProjContainer.appendChild(newProj);
