@@ -17,11 +17,13 @@ html, body {
 /* Header Styling */
 
 header {
+    font-family: 'Fredoka One', cursive;
     flex-basis: auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: .5rem 1rem .5rem 1rem;
+    margin: 0;
+    padding: .5rem 1rem .75rem 3rem;
     border-bottom: 2px solid black;
     background-color: rgb(223, 0, 0);
     color: white;
@@ -33,9 +35,15 @@ h1 {
     margin: .2rem 0 .2rem 0;
 }
 
+#date {
+    font-size: 1.25rem;
+    text-align: end;
+}
+
 /* Projects Section Styling */
 
 #projects-nav {
+    font-family: 'Fredoka One', cursive;
     background-color: rgb(221, 221, 221);
     height: 100vh;
 }
@@ -55,6 +63,7 @@ li {
 
 #addProject {
     cursor: pointer;
+    padding-left: 1rem;
 }
 
 .project:hover {
@@ -190,6 +199,7 @@ input {
 /* Tasks Section Styling */
 
 #tasks-section {
+    font-family: 'Fredoka One', cursive;
     background-color: rgb(187, 187, 186);
     display: flex;
     flex-direction: column;
@@ -206,14 +216,15 @@ input {
     font-size: 1.5rem;
     color: rgb(56, 56, 56);
     border: solid;
-    height: 2rem;
-    width: 99%;
-    margin-top: .2rem;
+    box-sizing: border-box;
+    height: 2.5rem;
+    margin: .5rem .25rem .25rem .5rem;
     cursor: pointer;
     text-align: center;
 }
 
 .task {
+    font-family: 'Karla', sans-serif;
     margin: .25rem;
     font-size: 1.5rem;
     padding: .5rem;
@@ -257,7 +268,9 @@ input {
 }
 
 .tasks-header {
+    margin: .75rem 0 .75rem 0;
     text-align: center;
+    font-size: 2rem;
 }
 
 #task-complete {
@@ -286,7 +299,8 @@ input {
 
 .project {
     margin-top: .5rem;
-    padding: .25rem;
+    margin: 0rem .2rem .2rem .2rem;
+    padding: .25rem .25rem .25rem 1rem;
     border: solid;
     display: grid;
     grid-template-columns: 80% 10% 10%;
