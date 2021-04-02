@@ -60,6 +60,9 @@ function displayDOM() {
     if (!checkLength(newProjectInput.value)) {
       return;
     };
+    if (checkExisting(newProjectInput.value)) {
+      return;
+    };
     removeTasks();
     // Creates project object and appends to projects array.
     addNewProject(newProjectInput.value, projectsArr);
@@ -235,13 +238,23 @@ function displayDOM() {
     }
   };
 
-  //Checks for proper input length, returns true if the input value is > 0.
+  // Checks for proper input length, returns true if the input value is > 0.
   const checkLength = (nameValue) => {
     if (nameValue.length < 1) {
       alert('Please enter a name');
       return false;
     } else {
       return true;
+    }
+  }
+
+  // Check for existing project of the same name.
+  const checkExisting = (nameValue) => {
+    for (let i = 0; i < projectsArr.length; i++) {
+      if (nameValue === projectsArr[i].name) {
+        alert('Project already exists');
+        return true;
+      }
     }
   }
 
