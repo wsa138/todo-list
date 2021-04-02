@@ -7,7 +7,7 @@ html, body {
 
 #content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: .8fr 1.1fr 1.1fr;
     grid-template-rows: 0.25fr 1.75fr;
     grid-template-areas: 
         "header header header"
@@ -22,7 +22,7 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     margin: 0;
-    padding: .5rem 1rem .75rem 3rem;
+    padding: .5rem 1rem .75rem 5rem;
     border-bottom: 2px solid black;
     background-color: rgb(223, 0, 0);
     color: white;
@@ -37,6 +37,7 @@ h1 {
 #date {
     font-size: 1.25rem;
     text-align: end;
+    padding-right: 5rem;
 }
 
 /* Projects Section Styling */
@@ -47,7 +48,7 @@ h1 {
     height: 100vh;
 }
 
-ul {
+#projects-menu {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -56,7 +57,8 @@ ul {
 
 li {
     list-style-type: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: .25rem;
     height: 2rem;
 }
 
@@ -209,6 +211,7 @@ input {
 #tasks-list {
     display: flex;
     flex-direction: column;
+    margin: 0 .25rem 0 .25rem;
 }
 
 #addTaskBtn {
@@ -217,7 +220,7 @@ input {
     border: solid;
     box-sizing: border-box;
     height: 2.5rem;
-    margin: .5rem .25rem .25rem .5rem;
+    margin: .5rem .25rem .25rem .25rem;
     cursor: pointer;
     text-align: center;
     border-radius: 3%;
@@ -302,14 +305,18 @@ input {
 /* Projects Styling */
 
 .project {
+    font-family: 'Karla', sans-serif;
     margin-top: .5rem;
     margin: 0rem .2rem .2rem .2rem;
-    padding: .25rem .25rem .25rem 1rem;
+    padding: .1rem .1rem .1rem .25rem;
     display: grid;
-    grid-template-columns: .7fr .3fr;
+    grid-template-columns: .75fr .25fr;
     grid-template-rows: 1fr;
     border: solid 2px black;
     border-radius: 3%;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 700;
 }
 
 .proj-finish-container {
@@ -351,3 +358,11 @@ input {
     background-color: purple;
 }
 
+
+
+/* MEDIA QUERIES */
+@media (max-width: 114rem) {
+    .project-text {
+        font-size: 1.2rem;
+    }
+}
