@@ -247,16 +247,20 @@ function displayDOM() {
 
   // Converts HTML time value to meridian time.
   const toMeridian = (time) => {
-    let timeSplit = time.split(':');
-    let hour = timeSplit[0];
-    let minute = timeSplit[1];
-    let meridian = '';
-    if (hour > 12) {
-      meridian = 'PM';
-      return (hour - 12 + ':' + minute + ' ' + meridian);
+    if (time === '') {
+      return '';
     } else {
-      meridian = 'AM';
-      return (hour + ':' + minute + ' ' + meridian);
+      let timeSplit = time.split(':');
+      let hour = timeSplit[0];
+      let minute = timeSplit[1];
+      let meridian = '';
+      if (hour > 12) {
+        meridian = 'PM';
+        return (hour - 12 + ':' + minute + ' ' + meridian);
+      } else {
+        meridian = 'AM';
+        return (hour + ':' + minute + ' ' + meridian);
+      }
     }
   }
 };
