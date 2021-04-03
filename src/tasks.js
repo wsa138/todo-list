@@ -22,6 +22,7 @@ const createTasksMenu = (projectObj, taskList) => {
         let finishContainer = document.createElement('div');
         let taskComplete = document.createElement('button');
         let taskDelete = document.createElement('button');
+        let expandNotes = document.createElement('button');
 
         newTask.className = 'task';
         newTaskName.className = 'task-name';
@@ -29,6 +30,7 @@ const createTasksMenu = (projectObj, taskList) => {
         newTaskTime.className = 'task-time';
         newTaskNotes.className = 'task-notes';
         finishContainer.className = 'finish-container'
+        expandNotes.className = 'task-notes-btn'
         
         taskComplete.id = 'task-complete';
         taskDelete.id = 'task-delete';
@@ -39,6 +41,7 @@ const createTasksMenu = (projectObj, taskList) => {
         newTaskNotes.innerHTML = taskObj.notes;
         taskComplete.innerHTML = '&#10003';
         taskDelete.innerHTML = '&#8722';
+        expandNotes.innerText = 'Notes'
 
         newTask.appendChild(newTaskName);
         newTask.appendChild(newTaskDate);
@@ -47,6 +50,7 @@ const createTasksMenu = (projectObj, taskList) => {
         finishContainer.appendChild(taskComplete);
         finishContainer.appendChild(taskDelete);
         newTask.appendChild(finishContainer);
+        newTask.appendChild(expandNotes);
         taskList.appendChild(newTask);
 
         completeEvent(taskComplete);
