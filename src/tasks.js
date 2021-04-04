@@ -55,6 +55,11 @@ const createTasksMenu = (projectObj, taskList) => {
 
         completeEvent(taskComplete);
         deleteEvent(taskDelete, newTask, taskObj, taskArr);
+
+        //TODO: Move this?
+        expandNotes.addEventListener('click', () => {
+            newTask.classList.toggle('show-notes');
+        })
     })
 }
 

@@ -234,7 +234,7 @@ input {
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: .5fr .7fr .3fr 2fr;
+    grid-template-rows: .5fr .7fr .3fr;
     grid-template-areas:
         "date time . finish"
         "name name name name"
@@ -355,8 +355,6 @@ input {
     box-sizing: border-box;
 }
 
-
-
 /* Completed Element Styling */
 
 .completed {
@@ -368,6 +366,21 @@ input {
     animation-direction: alternate;
     animation-fill-mode: forwards;
 }
+
+/* Toggle Class Styling */
+
+.show-notes {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr .7fr .3fr 2fr;
+    grid-template-areas:
+        "date time . finish"
+        "name name name name"
+        "note-btn note-btn note-btn note-btn"
+        "notes notes notes notes";
+    border: solid 2px;
+    grid-gap: 2px;
+}
+
 
 @keyframes finished {
     from {
