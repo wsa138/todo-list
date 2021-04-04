@@ -71,7 +71,7 @@ function displayDOM() {
     addProjectToMenu(newestProj);
     // Sets task header as new project's name.
     removeTaskHeader();
-    setTaskHeader(newProjectInput.value);
+    setTaskHeader(newestProj.name);
     displayNone(projectsModal);
     projectForm.reset();
   });
