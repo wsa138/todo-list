@@ -151,7 +151,7 @@ function displayDOM() {
     addNewProject('General', projectsArr);
     let newestProj = projectsArr[projectsArr.length - 1];
     addProjectToMenu(newestProj);
-    setTaskHeader(newProjectInput.value);
+    setTaskHeader(newestProj.name);
     document.querySelector('.proj-finish-container').style.display = 'none';
   }
 
