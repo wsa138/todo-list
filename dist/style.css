@@ -267,6 +267,7 @@ input {
 }
 
 .task-notes {
+    display: none;
     background-color: seagreen;
     grid-area: notes;
     font-size: 1rem;
@@ -379,6 +380,10 @@ input {
         "notes notes notes notes";
     border: solid 2px;
     grid-gap: 2px;
+}
+
+.hide-display {
+    display: inline;
 }
 
 

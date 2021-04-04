@@ -146,6 +146,16 @@ function displayDOM() {
     }
   };
 
+  // Adds a general tasks project to the projects array.
+  const addGeneral = () => {
+    addNewProject('General', projectsArr);
+    let newestProj = projectsArr[projectsArr.length - 1];
+    addProjectToMenu(newestProj);
+    setTaskHeader(newProjectInput.value);
+    document.querySelector('.proj-finish-container').style.display = 'none';
+  }
+
+
   // COMPLETE AND DELETE BUTTON FUNCTIONALITY FOR PROJECTS
 
   const addProjectFinish = (parentEle, obj) => {
@@ -277,6 +287,8 @@ function displayDOM() {
       }
     }
   }
+
+  addGeneral();
 };
 
 export { displayDOM };

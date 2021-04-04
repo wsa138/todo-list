@@ -56,9 +56,10 @@ const createTasksMenu = (projectObj, taskList) => {
         completeEvent(taskComplete);
         deleteEvent(taskDelete, newTask, taskObj, taskArr);
 
-        //TODO: Move this?
+        // Add event listener to toggle the notes section.
         expandNotes.addEventListener('click', () => {
             newTask.classList.toggle('show-notes');
+            newTaskNotes.classList.toggle('hide-display');
         })
     })
 }
