@@ -12,7 +12,9 @@ const taskFactory = (name, date, time, notes) => {
 
 // Iterate over a projects tasks, creates DOM elements and appends them to tasks section.
 const createTasksMenu = (projectObj, taskList) => {
+    console.log(projectObj, 'no obj passed');
     let taskArr = projectObj.projectTasksArr
+    console.log('bug');
     taskArr.forEach(function(taskObj) {
         let newTask = document.createElement('div');
         let newTaskName = document.createElement('div');

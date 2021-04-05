@@ -26,8 +26,6 @@ function displayDOM() {
   const projectsMenu = document.getElementById('projects-menu');
   const taskHead = document.getElementById('tasks-section');
 
-  // Array containing all the projects created and saved to storage.
-  const projectsArr = [];
 
   // Sets the current date at the top of the page.
   const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy');
@@ -66,12 +64,12 @@ function displayDOM() {
     removeTasks();
     // Creates project object and appends to projects array.
     addNewProject(newProjectInput.value, projectsArr);
+    addStorage();
     // Adds the project to the projects menu.
-    let newestProj = projectsArr[projectsArr.length - 1];
-    addProjectToMenu(newestProj);
+    addProjectToMenu(projectsArr[projectsArr.length - 1]);
     // Sets task header as new project's name.
     removeTaskHeader();
-    setTaskHeader(newestProj.name);
+    setTaskHeader(projectsArr[projectsArr.length - 1].name);
     displayNone(projectsModal);
     projectForm.reset();
   });
@@ -93,6 +91,7 @@ function displayDOM() {
         if (projectsArr[i].name === currentProject) {
           // Add new task object to current project array of task objects.
           projectsArr[i].projectTasksArr.push(newTaskObj);
+          addStorage();
           // Re-creates current projects task list.
           populateTasks(projectsArr[i]);
           break;
@@ -123,6 +122,7 @@ function displayDOM() {
       removeTaskHeader();
       setTaskHeader(obj.name);
       populateTasks(obj);
+      console.log('here')
     });
   };
 
@@ -149,6 +149,7 @@ function displayDOM() {
   // Adds a general tasks project to the projects array.
   const addGeneral = () => {
     addNewProject('General', projectsArr);
+    addStorage();
     let newestProj = projectsArr[projectsArr.length - 1];
     addProjectToMenu(newestProj);
     setTaskHeader(newestProj.name);
@@ -238,7 +239,8 @@ function displayDOM() {
     let taskList = document.getElementById('tasks-list');
     let projectInx = projectsArr.indexOf(project);
     // Creates and appends elements from projects task objects to task section.
-    createTasksMenu(projectsArr[projectInx], taskList);
+    createTasksMenu(project, taskList);
+    console.log('popTask End');
   };
 
   // Removes tasks elements.
@@ -288,7 +290,33 @@ function displayDOM() {
     }
   }
 
-  addGeneral();
+  // Sets projectsArr to localStorage
+  //TODO: anywhere a new project or task is created or added, 
+  // addStorage needs to be run to set projectsArr to local storage.
+  const addStorage = () => {
+    console.log('addings to storage');
+    localStorage.setItem('todo-list', JSON.stringify(projectsArr));
+    console.log(JSON.parse(localStorage.getItem('todo-list')));
+  }
+
+   // Checks local storage for any saved projects data.
+   const checkStorage = () => {
+    if (localStorage.getItem('todo-list')) {
+      console.log('loading storage');
+      JSON.parse(localStorage.getItem('todo-list')).forEach((obj) => {
+        addProjectToMenu(obj);
+      })
+      return JSON.parse(localStorage.getItem('todo-list'));
+    } else {
+      console.log('creating storage');
+      return [];
+    }
+  }
+
+  const projectsArr = checkStorage();
+  console.log(projectsArr);
+
+  //addGeneral();
 };
 
 
