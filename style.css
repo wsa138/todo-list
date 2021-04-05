@@ -270,7 +270,7 @@ input {
     display: none;
     background-color: seagreen;
     grid-area: notes;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .finish-container {
@@ -382,7 +382,7 @@ input {
     grid-gap: 2px;
 }
 
-.hide-display {
+.show-display {
     display: inline;
 }
 
