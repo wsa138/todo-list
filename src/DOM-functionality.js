@@ -116,13 +116,18 @@ function displayDOM() {
     obj.element = newProjContainer;
   };
 
-  // Add event listener to display project name when clicked.
+  // Add event listener to display project name and tasks when clicked.
   const addDisplayEvent = (obj, ele) => {
     ele.addEventListener('click', function () {
-      removeTaskHeader();
-      setTaskHeader(obj.name);
-      populateTasks(obj);
-      console.log('here')
+      let savedArr = JSON.parse(localStorage.getItem('todo-list'));
+      for (let i = 0; i < savedArr.length; i++) {
+        if (savedArr[i].name === obj.name) {
+          console.log(savedArr[i])
+          removeTaskHeader();
+          setTaskHeader(savedArr[i].name);
+          populateTasks(savedArr[i]);
+        }
+      }
     });
   };
 
@@ -203,8 +208,8 @@ function displayDOM() {
   const deleteProjectObj = (obj) => {
     // Local scope taskHeader.
     let taskHeader = document.querySelector('.tasks-header');
-    projectsArr.forEach(function (o) {
-      if (o === obj) {
+    projectsArr.forEach((o) => {
+      if (o.name === obj.name) {
         projectsArr.splice(projectsArr.indexOf(o), 1);
         // Check if removed project is currently displayed, and if so remove it.
         if (o.name === taskHeader.innerHTML) {
@@ -237,10 +242,8 @@ function displayDOM() {
   const populateTasks = (project) => {
     removeTasks();
     let taskList = document.getElementById('tasks-list');
-    let projectInx = projectsArr.indexOf(project);
     // Creates and appends elements from projects task objects to task section.
     createTasksMenu(project, taskList);
-    console.log('popTask End');
   };
 
   // Removes tasks elements.
@@ -294,18 +297,19 @@ function displayDOM() {
   //TODO: anywhere a new project or task is created or added, 
   // addStorage needs to be run to set projectsArr to local storage.
   const addStorage = () => {
-    console.log('addings to storage');
     localStorage.setItem('todo-list', JSON.stringify(projectsArr));
-    console.log(JSON.parse(localStorage.getItem('todo-list')));
   }
 
    // Checks local storage for any saved projects data.
-   const checkStorage = () => {
+  const checkStorage = () => {
     if (localStorage.getItem('todo-list')) {
       console.log('loading storage');
-      JSON.parse(localStorage.getItem('todo-list')).forEach((obj) => {
+      let savedProjectsArr = JSON.parse(localStorage.getItem('todo-list'))
+      savedProjectsArr.forEach((obj) => {
         addProjectToMenu(obj);
       })
+      setTaskHeader(savedProjectsArr[0].name);
+      populateTasks(savedProjectsArr[0]);
       return JSON.parse(localStorage.getItem('todo-list'));
     } else {
       console.log('creating storage');
@@ -313,10 +317,15 @@ function displayDOM() {
     }
   }
 
+  //localStorage.clear()
   const projectsArr = checkStorage();
-  console.log(projectsArr);
 
-  //addGeneral();
+  /*
+  if (projectsArr.length === 0) {
+    addGeneral();
+    console.log('added general')
+  }
+  */
 };
 
 
