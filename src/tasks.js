@@ -59,7 +59,7 @@ const createTasksMenu = (projectObj, taskList) => {
         // Add event listener to toggle the notes section.
         expandNotes.addEventListener('click', () => {
             newTask.classList.toggle('show-notes');
-            newTaskNotes.classList.toggle('hide-display');
+            newTaskNotes.classList.toggle('show-display');
         })
     })
 }
