@@ -324,12 +324,28 @@ function displayDOM() {
     let completeBtnEle = document.querySelectorAll('.task-complete');
     for (let x = 0; x < completeBtnEle.length; x++) {
       completeBtnEle[x].addEventListener('click', function() {
-        completeBtnEle[x].parentElement.parentElement.classList.toggle('completed')
+        let workingTask = completeBtnEle[x].parentElement.parentElement;
+        workingTask.classList.toggle('completed')
+        projectsArr.forEach((obj) => {
+          if (obj.name === proj) {
+            obj.projectTasksArr.forEach((taskObj) => {
+              if (taskObj.name === workingTask.id) {
+                if (taskObj.completed === false) {
+                  taskObj.completed = true;
+                } else if (taskObj.completed === true) {
+                  taskObj.completed = false;
+                }
+                console.log(taskObj.completed);
+                addStorage();
+              }
+            })
+          }
+        })
       })
     }
   }
 
-
+  
   // Sets projectsArr to localStorage
   //TODO: anywhere a new project or task is created or added, 
   // addStorage needs to be run to set projectsArr to local storage.

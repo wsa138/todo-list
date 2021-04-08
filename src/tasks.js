@@ -6,7 +6,8 @@ const taskFactory = (name, date, time, notes) => {
         name: name,
         date: date,
         time: time,
-        notes: notes
+        notes: notes,
+        completed: false
     }
 }
 
@@ -59,6 +60,10 @@ const createTasksMenu = (projectObj, taskList) => {
             newTask.classList.toggle('show-notes');
             newTaskNotes.classList.toggle('show-display');
         })
+
+        if (taskObj.completed === true) {
+            newTask.classList.add('completed')
+        }
     })
 }
 
