@@ -317,8 +317,14 @@ function displayDOM() {
           }
           console.log(JSON.parse(localStorage.getItem('todo-list')))
         })
-
         task.remove();
+      })
+    }
+    // Task complete button toggles class name.
+    let completeBtnEle = document.querySelectorAll('.task-complete');
+    for (let x = 0; x < completeBtnEle.length; x++) {
+      completeBtnEle[x].addEventListener('click', function() {
+        completeBtnEle[x].parentElement.parentElement.classList.toggle('completed')
       })
     }
   }

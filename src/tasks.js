@@ -25,6 +25,7 @@ const createTasksMenu = (projectObj, taskList) => {
         let expandNotes = document.createElement('button');
 
         newTask.className = 'task';
+        newTask.id = taskObj.name;
         newTaskName.className = 'task-name';
         newTaskDate.className = 'task-date';
         newTaskTime.className = 'task-time';
@@ -32,8 +33,8 @@ const createTasksMenu = (projectObj, taskList) => {
         finishContainer.className = 'finish-container'
         expandNotes.className = 'task-notes-btn'
         
-        taskComplete.id = 'task-complete';
-        taskDelete.id = 'task-delete';
+        taskComplete.className = 'task-complete';
+        taskDelete.className = 'task-delete';
 
         newTaskName.innerHTML = taskObj.name;
         newTaskDate.innerHTML = taskObj.date;
@@ -53,9 +54,6 @@ const createTasksMenu = (projectObj, taskList) => {
         newTask.appendChild(expandNotes);
         taskList.appendChild(newTask);
 
-        completeEvent(taskComplete);
-        deleteEvent(taskDelete, newTask, taskObj, taskArr);
-
         // Add event listener to toggle the notes section.
         expandNotes.addEventListener('click', () => {
             newTask.classList.toggle('show-notes');
@@ -64,19 +62,7 @@ const createTasksMenu = (projectObj, taskList) => {
     })
 }
 
-const completeEvent = (ele) => {
-    ele.addEventListener('click', () => {
-        ele.parentElement.parentElement.classList.toggle('completed')
-    })
-}
 
-const deleteEvent = (ele, parent, obj, arr) => {
-    ele.addEventListener('click', () => {
-        parent.remove();
-        let objIndex = arr.indexOf(obj);
-        arr.splice(objIndex, 1);
-        console.log(arr);
-    })
-}
+
 
 export { taskFactory, createTasksMenu }
