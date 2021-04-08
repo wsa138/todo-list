@@ -122,7 +122,6 @@ function displayDOM() {
       let savedArr = JSON.parse(localStorage.getItem('todo-list'));
       for (let i = 0; i < savedArr.length; i++) {
         if (savedArr[i].name === obj.name) {
-          console.log(savedArr[i])
           removeTaskHeader();
           setTaskHeader(savedArr[i].name);
           populateTasks(savedArr[i]);
@@ -198,6 +197,7 @@ function displayDOM() {
       if (confirm('Are you sure you want to delete this project?')) {
         deleteProjectObj(obj);
         ele.parentElement.parentElement.remove();
+        addStorage();
       } else {
         return;
       }
@@ -320,12 +320,11 @@ function displayDOM() {
   //localStorage.clear()
   const projectsArr = checkStorage();
 
-  /*
+
   if (projectsArr.length === 0) {
     addGeneral();
     console.log('added general')
   }
-  */
 };
 
 
