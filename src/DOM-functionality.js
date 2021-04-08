@@ -114,6 +114,9 @@ function displayDOM() {
     addProjectFinish(newProjContainer, obj);
     addDisplayEvent(obj, newProjContainer);
     obj.element = newProjContainer;
+    if (obj.completed === true) {
+      newProjContainer.classList.add('completed')
+    }
   };
 
   // Add event listener to display project name and tasks when clicked.
@@ -177,16 +180,22 @@ function displayDOM() {
     parentEle.appendChild(finishContainer);
     finishContainer.appendChild(completeEle);
     finishContainer.appendChild(deleteEle);
-    setCompleteEvent(completeEle);
+    setCompleteEvent(completeEle, obj);
     setDeleteEvent(deleteEle, obj);
   };
 
   // Add an event listener on the 'complete' button.
   // TODO: Add necessary code related to a complete event.
-  const setCompleteEvent = (ele) => {
+  const setCompleteEvent = (ele, projObj) => {
     ele.addEventListener('click', (e) => {
       e.stopPropagation();
       ele.parentElement.parentElement.classList.toggle('completed');
+      if (projObj.completed === true) {
+        projObj.completed = false;
+      } else if (projObj.completed === false) {
+        projObj.completed = true;
+      }
+      addStorage();
     });
   };
 
