@@ -244,6 +244,7 @@ function displayDOM() {
     let taskList = document.getElementById('tasks-list');
     // Creates and appends elements from projects task objects to task section.
     createTasksMenu(project, taskList);
+    addTaskFinish(project.name);
   };
 
   // Removes tasks elements.
@@ -292,6 +293,36 @@ function displayDOM() {
       }
     }
   }
+  
+  // Add task finish functionality
+  const addTaskFinish = (proj) => {
+    // Task delete button deletes task element from task list and task object from project.
+    let deleteBtnEle = document.querySelectorAll('.task-delete');
+    for (let i = 0; i < deleteBtnEle.length; i++) {
+      deleteBtnEle[i].addEventListener('click', function() {
+        let task = this.parentElement.parentElement;
+        let taskName = task.id;
+        // Find correct project object.
+        projectsArr.forEach((obj) => {
+          if (obj.name === proj) {
+            // Find correct task object.
+            obj.projectTasksArr.forEach((taskObj) => {
+              let delIndex;
+              if (taskObj.name === taskName) {
+                delIndex = obj.projectTasksArr.indexOf(taskObj);
+                obj.projectTasksArr.splice(delIndex, 1);
+                addStorage();
+              }
+            })
+          }
+          console.log(JSON.parse(localStorage.getItem('todo-list')))
+        })
+
+        task.remove();
+      })
+    }
+  }
+
 
   // Sets projectsArr to localStorage
   //TODO: anywhere a new project or task is created or added, 
