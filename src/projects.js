@@ -4,7 +4,8 @@
 const projectFactory = (name) => {
     return { 
         name: name,
-        projectTasksArr: []
+        projectTasksArr: [],
+        completed: false
     };
 }
 
@@ -17,13 +18,3 @@ const addNewProject = (name, array) => {
 
 
 export { addNewProject }
-
-
-/*
-    let newEle = document.createElement("li");
-    newEle.innerHTML = name;
-    newEle.className = 'project'
-    newEle.style.cursor = 'pointer'
-    const projectTasksArr = [];
-    return { name, newEle, projectTasksArr };
-*/
