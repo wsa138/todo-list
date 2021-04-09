@@ -27,6 +27,8 @@ function displayDOM() {
   const menuBtn = document.getElementById('menu-btn')
   const projectsNav = document.getElementById('projects-nav')
 
+  let menuOpen = false;
+
 
   // Sets the current date at the top of the page.
   const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy');
@@ -401,9 +403,17 @@ function displayDOM() {
     } else {
       projectsNav.style.display = 'none';
     }
-    
   })
 
+  menuBtn.addEventListener('click', () => {
+    if (!menuOpen) {
+      menuBtn.classList.add('open');
+      menuOpen = true;
+    } else {
+      menuBtn.classList.remove('open');
+      menuOpen = false;
+    }
+  })
 
 };
 

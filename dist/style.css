@@ -505,4 +505,22 @@ input {
     .menu-clicked {
         background-color: white;;
     }
+
+    /*MENU BTN ANIMATION*/
+    #menu-btn.open #menu-btn-burger {
+        transform: translateX(-40px);
+        background: transparent;
+    }
+    #menu-btn.open #menu-btn-burger::before {
+        transform: rotate(45deg) translate(28px, -28px);
+    }
+    #menu-btn.open #menu-btn-burger::after {
+        transform: rotate(-45deg) translate(28px, 28px);
+    }
+
+    @media only screen and (max-width: 44rem) {
+        header {
+            background-color: teal;
+        }
+    }
 }
