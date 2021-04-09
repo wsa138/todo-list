@@ -251,6 +251,8 @@ function displayDOM() {
   const populateTasks = (project) => {
     removeTasks();
     let taskList = document.getElementById('tasks-list');
+    // Sort project task array items by date.
+    sortTasks(project);
     // Creates and appends elements from projects task objects to task section.
     createTasksMenu(project, taskList);
     addTaskFinish(project.name);
@@ -324,7 +326,6 @@ function displayDOM() {
               }
             })
           }
-          console.log(JSON.parse(localStorage.getItem('todo-list')))
         })
         task.remove();
       })
@@ -388,6 +389,16 @@ function displayDOM() {
     console.log('added general')
   }
 };
+
+// SORTING TASKS LIST BY DATE
+
+// Take project, sort projects tasks array, return the sorted project.
+const sortTasks = (project) => {
+  let newOrder = project.projectTasksArr.sort(function(a, b) {
+    return new Date(a.date) - new Date(b.date);
+  })
+  return newOrder
+}
 
 
 
