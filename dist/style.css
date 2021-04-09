@@ -439,6 +439,7 @@ input {
         padding-left: 8rem;
         padding-right: 2rem;
     }
+
     #projects-nav {
         width: 100%;
         height: 100%;
@@ -455,8 +456,7 @@ input {
         background-color: white;
         border-radius: 4px;
         text-align: center;
-        
-        /*position: relative;*/
+        margin: auto;
     }
     #content {
         grid-template-areas: 
@@ -494,7 +494,6 @@ input {
         height: 6px;
         background: black;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
         transition: all .5s ease-in-out;
     }
     #menu-btn-burger::before {
@@ -502,5 +501,8 @@ input {
     }
     #menu-btn-burger::after {
         transform: translateY(12px);
+    }
+    .menu-clicked {
+        background-color: white;;
     }
 }

@@ -395,7 +395,13 @@ function displayDOM() {
   //Toggles projects menu display.
   menuBtn.addEventListener('click', function() {
     console.log('display projects menu')
-    projectsNav.style.display= 'block';
+    menuBtn.classList.toggle('menu-clicked')
+    if (window.getComputedStyle(projectsNav, null).display === 'none') {
+      projectsNav.style.display = 'block';
+    } else {
+      projectsNav.style.display = 'none';
+    }
+    
   })
 
 
