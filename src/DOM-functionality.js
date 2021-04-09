@@ -22,9 +22,10 @@ function displayDOM() {
   const taskDate = document.getElementById('newTaskDate');
   const taskTime = document.getElementById('newTaskTime');
   const taskNotes = document.getElementById('newTaskNotes')
-  const taskList = document.getElementById('tasks-list');
   const projectsMenu = document.getElementById('projects-menu');
   const taskHead = document.getElementById('tasks-section');
+  const menuBtn = document.getElementById('menu-btn')
+  const projectsNav = document.getElementById('projects-nav')
 
 
   // Sets the current date at the top of the page.
@@ -388,6 +389,16 @@ function displayDOM() {
     addGeneral();
     console.log('added general')
   }
+
+  //DISPLAY PROJECTS MENU
+
+  //Toggles projects menu display.
+  menuBtn.addEventListener('click', function() {
+    console.log('display projects menu')
+    projectsNav.style.display= 'block';
+  })
+
+
 };
 
 // SORTING TASKS LIST BY DATE
@@ -399,6 +410,8 @@ const sortTasks = (project) => {
   })
   return newOrder
 }
+
+
 
 
 
