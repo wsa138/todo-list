@@ -530,9 +530,14 @@ input {
         }
     }
 
-    @media only screen and (max-width: 37rem) {
+    @media only screen and (max-width: 40rem) {
         header {
             background-color:orange;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0rem 0rem 0rem;
+            margin: 0;
+            align-items: center;
         }
         #projects-menu {
             width: 20rem;
@@ -552,14 +557,14 @@ input {
             font-size: 1.5rem;
         }
         #menu-btn {
-            top: 10px;
-            left: 10px;
+            top: 12px;
+            left: 12px;
             width: 50px;
             height: 50px;
         }
     }
 
-    @media only screen and (max-width: 30rem) {
+    @media only screen and (max-width: 31rem) {
         header {
             background-color: rgb(112, 94, 94);
         }
@@ -582,6 +587,17 @@ input {
         #menu-btn-burger::after {
             width: 30px;
             transform: translateY(-10px);
+        }
+        .task-name {
+            font-size: 1.4rem;
+        }
+        .task {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "date time finish"
+                "name name name"
+                "note-btn note-btn note-btn"
+                "notes notes notes";
         }
     }
 }
