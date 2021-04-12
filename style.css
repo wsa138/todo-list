@@ -406,6 +406,7 @@ input {
 
 /* MEDIA QUERIES */
 
+
 @media only screen and (max-width: 81rem) {
     header {
         background-color: blue;
@@ -424,19 +425,22 @@ input {
 }
 
 
-@media only screen and (max-width: 71rem) {
+@media (max-width: 71rem) {
     header {
-        background-color: purple;
+        background-color: green;
     }
     #content {
         grid-template-columns: .9fr 1fr 1.1fr;
+    }
+    #menu-btn {
+        display: none;
     }
 }
 
 
 @media only screen and (max-width: 61rem) {
     header {
-        background-color: yellow;
+        background-color: orange;
         padding-left: 8rem;
         padding-right: 2rem;
     }
@@ -448,8 +452,8 @@ input {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         position: absolute;
-        top: 0;
         display: none;
+        top: 0;
         justify-content: center;
         align-items: center;
     }
@@ -521,97 +525,110 @@ input {
         transform: rotate(-45deg) translate(28px, 28px);
     }
 
-    @media only screen and (max-width: 44rem) {
-        header {
-            background-color: teal;
-        }
-        #projects-menu {
-            width: 22.5rem;
-        }
+@media only screen and (max-width: 44rem) {
+    header {
+        background-color: maroon;
     }
+    #projects-menu {
+        width: 22.5rem;
+    }
+}
 
-    @media only screen and (max-width: 40rem) {
-        header {
-            background-color:orange;
-            display: flex;
-            flex-direction: column;
-            padding: 1rem 0rem 0rem 0rem;
-            margin: 0;
-            align-items: center;
-        }
-        #projects-menu {
-            width: 20rem;
-        }
-        .task {
-            font-size: 1.25rem;
-        }
-        .task-name {
-            font-size: 1.75rem;
-        }
-        .task-time, .task-date {
-            line-height: 2rem;
-        }
-        .task-complete, .task-delete {
-            height: 2rem;
-            width: 2.25rem;
-            font-size: 1.5rem;
-        }
-        #menu-btn {
-            top: 12px;
-            left: 12px;
-            width: 50px;
-            height: 50px;
-        }
+@media only screen and (max-width: 40rem) {
+    header {
+        background-color: grey;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0rem 0rem 0rem;
+        margin: 0;
+        align-items: center;
     }
+    #projects-menu {
+        width: 20rem;
+    }
+    .task {
+        font-size: 1.25rem;
+    }
+    .task-name {
+        font-size: 1.75rem;
+    }
+    .task-time, .task-date {
+        line-height: 2rem;
+    }
+    .task-complete, .task-delete {
+        height: 2rem;
+        width: 2.25rem;
+        font-size: 1.5rem;
+    }
+    #menu-btn {
+        top: 12px;
+        left: 12px;
+        width: 50px;
+        height: 50px;
+    }
+}
 
-    @media only screen and (max-width: 31rem) {
-        header {
-            background-color: rgb(112, 94, 94);
-        }
-        #menu-btn {
-            width: 42px;
-            height: 42px;
-        }
-        #menu-btn-burger {
-            width: 30px;
-            height: 6px;
-            background: black;
-            border-radius: 3px;
-            box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
-            transition: all .5s ease-in-out;
-        }
-        #menu-btn-burger::before {
-            width: 30px;
-            transform: translateY(10px);
-        }
-        #menu-btn-burger::after {
-            width: 30px;
-            transform: translateY(-10px);
-        }
-        .task-name {
-            font-size: 1.4rem;
-        }
-        .task-time {
-            text-align: center;
-        }
-        .task {
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-areas:
-                "date time finish"
-                "name name name"
-                "note-btn note-btn note-btn"
-                "notes notes notes";
-        }
+@media only screen and (max-width: 31rem) {
+    header {
+        background-color: purple;
     }
+    #menu-btn {
+        width: 42px;
+        height: 42px;
+    }
+    #menu-btn-burger {
+        width: 30px;
+        height: 6px;
+        background: black;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+        transition: all .5s ease-in-out;
+    }
+    #menu-btn-burger::before {
+        width: 30px;
+        transform: translateY(10px);
+    }
+    #menu-btn-burger::after {
+        width: 30px;
+        transform: translateY(-10px);
+    }
+    .task-name {
+        font-size: 1.4rem;
+    }
+    .task-time {
+        text-align: center;
+    }
+    .task {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "date time finish"
+            "name name name"
+            "note-btn note-btn note-btn"
+            "notes notes notes";
+    }
+}
 
-    @media only screen and (max-width: 25rem) {
-        header {
-            background-color: pink;
-        }
-        .task-complete, .task-delete {
-            height: 1.75rem;
-            width: 2rem;
-            font-size: 1.25rem;
-        }
+@media only screen and (max-width: 25rem) {
+    header {
+        background-color: pink;
     }
+    .task-complete, .task-delete {
+        height: 1.75rem;
+        width: 2rem;
+        font-size: 1.25rem;
+    }
+    #menu-btn {
+        top: 160px;
+        left: 20px;
+    }
+    #menu-btn.open {
+        top: 5px;
+        left: 15px;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+
+
 }
