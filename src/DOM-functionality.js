@@ -392,7 +392,7 @@ function displayDOM() {
     console.log('added general')
   }
 
-  //DISPLAY PROJECTS MENU
+  //PEOJECTS MENU FUNCTIONALITY
 
   //Toggles projects menu display.
   menuBtn.addEventListener('click', function() {
@@ -405,6 +405,7 @@ function displayDOM() {
     }
   })
 
+  // Sets menu button class on click.
   menuBtn.addEventListener('click', () => {
     if (!menuOpen) {
       menuBtn.classList.add('open');
@@ -412,6 +413,21 @@ function displayDOM() {
     } else {
       menuBtn.classList.remove('open');
       menuOpen = false;
+    }
+  })
+
+  // Show projects nav menu if screen size allows.
+  window.addEventListener('resize', function(e) {
+    if (document.body.clientWidth >= 962) {
+      projectsNav.style.display = 'block';
+      // Check if menuBtn was left open, and if so, remove 'open' class name.
+      if (menuBtn.classList[1] === 'open') {
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+        menuBtn.classList.remove('menu-clicked');
+      }
+    } else {
+      projectsNav.style.display = 'none';
     }
   })
 
