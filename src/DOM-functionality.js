@@ -428,6 +428,9 @@ function displayDOM() {
       }
     } else {
       projectsNav.style.display = 'none';
+      menuBtn.classList.remove('open');
+      menuOpen = false;
+      menuBtn.classList.remove('menu-clicked');
     }
   })
 
