@@ -414,7 +414,7 @@ function displayDOM() {
       menuBtn.classList.remove('open');
       menuOpen = false;
     }
-  })
+  }) 
 
   // Show projects nav menu if screen size allows.
   window.addEventListener('resize', function(e) {
