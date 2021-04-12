@@ -68,11 +68,25 @@ li {
 
 #addProject {
     cursor: pointer;
-    padding-left: 1rem;
+    padding: 0rem 0rem 0rem 1rem;
+    height: 2.5rem;
+
+}
+
+#addProject:hover {
+    background-color: rgb(241, 241, 241);
+    margin: 0;
+    border-style: inset;
+}
+
+.project {
+    box-shadow: 1px 1px;
 }
 
 .project:hover {
     cursor: pointer;
+    background-color: rgb(241, 241, 241);
+
 }
 
 a {
@@ -250,7 +264,6 @@ input {
 }
 
 .task-name {
-    background-color: rosybrown;
     grid-area: name;
     text-align: center;
     font-size: 2rem;
@@ -258,12 +271,10 @@ input {
 }
 
 .task-date {
-    background-color: royalblue;
     grid-area: date;
 }
 
 .task-time {
-    background-color: sandybrown;
     grid-area: time;
 }
 
@@ -273,13 +284,11 @@ input {
 
 .task-notes {
     display: none;
-    background-color: seagreen;
     grid-area: notes;
     font-size: 1.25rem;
 }
 
 .finish-container {
-    background-color:rgb(231, 121, 121);
     grid-area: finish;
     text-align: end;
 }
@@ -408,9 +417,6 @@ input {
 
 
 @media only screen and (max-width: 81rem) {
-    header {
-        background-color: blue;
-    }
     .project {
         font-size: 1.05rem;
     }
@@ -426,9 +432,6 @@ input {
 
 
 @media (max-width: 71rem) {
-    header {
-        background-color: green;
-    }
     #content {
         grid-template-columns: .9fr 1fr 1.1fr;
     }
@@ -440,7 +443,6 @@ input {
 
 @media only screen and (max-width: 61rem) {
     header {
-        background-color: orange;
         padding-left: 8rem;
         padding-right: 2rem;
     }
@@ -526,9 +528,6 @@ input {
     }
 
 @media only screen and (max-width: 44rem) {
-    header {
-        background-color: maroon;
-    }
     #projects-menu {
         width: 22.5rem;
     }
@@ -536,7 +535,6 @@ input {
 
 @media only screen and (max-width: 40rem) {
     header {
-        background-color: grey;
         display: flex;
         flex-direction: column;
         padding: 1rem 0rem 0rem 0rem;
@@ -569,9 +567,6 @@ input {
 }
 
 @media only screen and (max-width: 31rem) {
-    header {
-        background-color: purple;
-    }
     #menu-btn {
         width: 42px;
         height: 42px;
@@ -609,9 +604,6 @@ input {
 }
 
 @media only screen and (max-width: 25rem) {
-    header {
-        background-color: pink;
-    }
     .task-complete, .task-delete {
         height: 1.75rem;
         width: 2rem;
