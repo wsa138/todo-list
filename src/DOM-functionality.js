@@ -187,17 +187,22 @@ function displayDOM() {
     setDeleteEvent(deleteEle, obj);
   };
 
-  // Add an event listener on the 'complete' button.
-  // TODO: Add necessary code related to a complete event.
+  // Adds event listener on project complete button.
   const setCompleteEvent = (ele, projObj) => {
     ele.addEventListener('click', (e) => {
       e.stopPropagation();
+      // Toggles class name 'completed' to the parent element.
       ele.parentElement.parentElement.classList.toggle('completed');
-      if (projObj.completed === true) {
-        projObj.completed = false;
-      } else if (projObj.completed === false) {
-        projObj.completed = true;
-      }
+      // Toggles bool of project objects property 'completed' which is saved to local storage.
+      projectsArr.forEach((proj) => {
+        if (proj.name === projObj.name) {
+          if (proj.completed === true) {
+            proj.completed = false;
+          } else if (proj.completed === false) {
+            proj.completed = true;
+          }
+        }
+      })
       addStorage();
     });
   };
