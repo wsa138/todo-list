@@ -218,12 +218,14 @@ function displayDOM() {
 
   // Delete project object from projectsArr.
   const deleteProjectObj = (obj) => {
-    // Local scope taskHeader.
-    let taskHeader = document.querySelector('.tasks-header');
     projectsArr.forEach((o) => {
       if (o.name === obj.name) {
         projectsArr.splice(projectsArr.indexOf(o), 1);
-        // Check if removed project is currently displayed, and if so remove it.
+        let taskHeader = document.querySelector('.tasks-header');
+        // If there is no task header, therefore no tasks display, return.
+        if (!taskHeader) {
+          return;
+        }
         if (o.name === taskHeader.innerHTML) {
           taskHeader.remove();
           removeTasks();
