@@ -84,8 +84,7 @@ li {
 
 #addProject:hover {
     background-color: rgb(241, 241, 241);
-    margin: 0;
-    border-style: inset;
+    text-shadow: 1px 1px grey;
 }
 
 .project {
@@ -450,6 +449,14 @@ input {
     text-align: center;
 }
 
+.completed.urgent::before {
+    content: none;
+}
+
+.completed.urgent {
+    box-shadow: none;
+}
+
 
 @keyframes finished {
     from {
@@ -663,10 +670,19 @@ input {
         left: 10px;
     }
     #menu-btn.open {
-        top: 5px;
+        top: 10px;
         left: 15px;
-        width: 2rem;
-        height: 2rem;
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+}
+
+@media only screen and (max-width: 22rem) {
+    header {
+        color: blue;
+    }
+    #menu-btn {
+        top: 165px;
     }
 }
 
