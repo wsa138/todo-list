@@ -16,7 +16,7 @@ html, body {
 #content {
     display: grid;
     grid-template-columns: .8fr 1.1fr 1.1fr;
-    grid-template-rows: 0.25fr 1.75fr;
+    grid-template-rows: 0.20fr 1.80fr;
     grid-template-areas: 
         "header header header"
         "projects tasks tasks";
@@ -31,16 +31,17 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     margin: 0;
-    padding: .5rem 1rem .75rem 5rem;
+    padding: 0rem 1rem .75rem 5rem;
     border: 2px solid black;
     background-color: #b00000;
     color: white;
     grid-area: header;
 }
 
+
 h1 {
     font-size: 3rem;
-    margin: .2rem 0 .2rem 0;
+    margin: 0rem 0 .2rem 0;
 }
 
 #date {
