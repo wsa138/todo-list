@@ -84,11 +84,14 @@ function displayDOM() {
     if (!checkLength(taskName.value)) {
       return;
     };
+    let currentProject = document.querySelector('.tasks-header').innerText;
+    if (checkExistingTask(taskName.value, currentProject)) {
+      return;
+    };
     if (checkCreatedProject()) {
       removeTasks();
       let meridianTime = toMeridian(taskTime.value);
       let newTaskObj = taskFactory(taskName.value, taskDate.value, meridianTime, taskNotes.value);
-      let currentProject = document.querySelector('.tasks-header').innerText;
       // Find current projects object in projectsArr.
       for (let i = 0; i < projectsArr.length; i++) {
         if (projectsArr[i].name === currentProject) {
@@ -295,6 +298,22 @@ function displayDOM() {
         return true;
       }
     }
+  }
+
+  // Check for existing task of same name in current project.
+  const checkExistingTask = (newName, workingProj) => {
+    let taskFlag = false;
+    projectsArr.forEach((proj) => {
+      if (proj.name === workingProj) {
+        proj.projectTasksArr.forEach((task) => {
+          if (task.name === newName) {
+            alert('Task already exists')
+            taskFlag = true;
+          }
+        })
+      }
+    })
+    return taskFlag;
   }
 
   // Check if task date is same as todays date
