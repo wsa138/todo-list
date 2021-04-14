@@ -1,9 +1,3 @@
-/*
-#b00000 -  red
-#060000 - black
-rgb(221, 221, 221)
-rgb(241, 241, 241)
-*/
 
 html, body {
     margin: 0;
@@ -31,7 +25,7 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     margin: 0;
-    padding: 0rem 1rem .75rem 5rem;
+    padding: 1.25rem 1rem 1rem 5rem;
     border: 2px solid black;
     background-color: #b00000;
     color: white;
@@ -41,13 +35,13 @@ header {
 
 h1 {
     font-size: 3rem;
-    margin: 0rem 0 .2rem 0;
+    margin: 0rem 0 .75rem 0;
 }
 
 #date {
     font-size: 1.25rem;
     text-align: end;
-    padding-right: 5rem;
+    padding-right: 7.5rem;
 }
 
 /* Projects Section Styling */
@@ -73,7 +67,7 @@ li {
     list-style-type: none;
     font-size: 2rem;
     margin-bottom: .25rem;
-    height: 2rem;
+    height: 2.25rem;
 }
 
 #addProject {
@@ -86,16 +80,6 @@ li {
 #addProject:hover {
     background-color: rgb(241, 241, 241);
     text-shadow: 1px 1px grey;
-}
-
-.project {
-    box-shadow: 1px 1px;
-}
-
-.project:hover {
-    cursor: pointer;
-    background-color: rgb(241, 241, 241);
-
 }
 
 a {
@@ -119,6 +103,65 @@ hr {
 
 #toggle {
     display: none;
+}
+
+.project {
+    box-shadow: 1px 1px;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    margin: 0rem .2rem .2rem .2rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: .75fr .25fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 3%;
+}
+
+.project-text {
+    font-size: 1.25rem;
+}
+
+.project:hover {
+    cursor: pointer;
+    background-color: rgb(241, 241, 241);
+}
+
+.proj-finish-container {
+    text-align: end;
+    margin-right: 2px;
+}
+
+#complete-btn:hover {
+    background-color: rgb(87, 255, 87);
+    border: solid 1px black;
+}
+
+#complete-btn {
+    background-color: rgb(26, 221, 26);
+    box-shadow: -1px -1px black;
+}
+
+#delete-btn:hover {
+    background-color: rgb(255, 87, 87);
+    border: solid 1px black;
+}
+
+#delete-btn {
+    background-color: rgb(255, 0, 0);
+    box-shadow: -1px -1px black;
+}
+
+.proj-btn {
+    height: 2rem;
+    width: 2.5rem;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1rem;
+    box-sizing: border-box;
 }
 
 /* Modal Styling */
@@ -356,57 +399,6 @@ input {
 }
 
 
-/* Projects Styling */
-
-.project {
-    font-family: 'Karla', sans-serif;
-    margin: 0rem .2rem .2rem .2rem;
-    padding: 0rem .1rem 0rem .25rem;
-    display: grid;
-    grid-template-columns: .75fr .25fr;
-    grid-template-rows: 1fr;
-    border: solid 2px black;
-    border-radius: 3%;
-    font-size: 1.25rem;
-    line-height: 2rem;
-    font-weight: 700;
-}
-
-.proj-finish-container {
-    text-align: end;
-}
-
-#complete-btn:hover {
-    background-color: rgb(87, 255, 87);
-    border: solid 1px black;
-}
-
-#complete-btn {
-    background-color: rgb(26, 221, 26);
-    box-shadow: -1px -1px black;
-}
-
-#delete-btn:hover {
-    background-color: rgb(255, 87, 87);
-    border: solid 1px black;
-}
-
-#delete-btn {
-    background-color: rgb(255, 0, 0);
-    box-shadow: -1px -1px black;
-}
-
-.proj-btn {
-    height: 2rem;
-    width: 2.5rem;
-    padding: 0;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1rem;
-    box-sizing: border-box;
-}
-
 /* Completed Element Styling */
 
 .completed {
@@ -478,7 +470,7 @@ input {
         font-size: 1.05rem;
     }
     .proj-finish-container {
-        line-height: 2.3rem;
+        
     }
     .proj-btn {
         height: 1.80rem;
