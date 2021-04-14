@@ -37,10 +37,10 @@ const createTasksMenu = (projectObj, taskList) => {
         taskComplete.className = 'task-complete';
         taskDelete.className = 'task-delete';
 
-        newTaskName.innerHTML = taskObj.name;
-        newTaskDate.innerHTML = taskObj.date;
-        newTaskTime.innerHTML = taskObj.time;
-        newTaskNotes.innerHTML = taskObj.notes;
+        newTaskName.innerText = taskObj.name;
+        newTaskDate.innerText = taskObj.date;
+        newTaskTime.innerText = taskObj.time;
+        newTaskNotes.innerText = taskObj.notes;
         taskComplete.innerHTML = '&#10003';
         taskDelete.innerHTML = '&#8722';
         expandNotes.innerText = 'Notes'

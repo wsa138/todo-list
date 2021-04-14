@@ -32,7 +32,7 @@ function displayDOM() {
 
   // Sets the current date at the top of the page.
   const formattedDate = format(new Date(), 'EEEE MM/dd/yyyy');
-  dateHeader.innerHTML = `${formattedDate}`;
+  dateHeader.innerText = `${formattedDate}`;
 
   // PROJECT AND TASK MODAL EVENT LISTENERS
 
@@ -88,7 +88,7 @@ function displayDOM() {
       removeTasks();
       let meridianTime = toMeridian(taskTime.value);
       let newTaskObj = taskFactory(taskName.value, taskDate.value, meridianTime, taskNotes.value);
-      let currentProject = document.querySelector('.tasks-header').innerHTML;
+      let currentProject = document.querySelector('.tasks-header').innerText;
       // Find current projects object in projectsArr.
       for (let i = 0; i < projectsArr.length; i++) {
         if (projectsArr[i].name === currentProject) {
@@ -110,7 +110,7 @@ function displayDOM() {
     let newProjContainer = document.createElement('li');
     let newProj = document.createElement('div');
     newProj.className = 'project-text';
-    newProj.innerHTML = obj.name;
+    newProj.innerText = obj.name;
     newProjContainer.className = 'project';
     newProjContainer.appendChild(newProj);
     projectsMenu.appendChild(newProjContainer);
@@ -231,7 +231,7 @@ function displayDOM() {
         if (!taskHeader) {
           return;
         }
-        if (o.name === taskHeader.innerHTML) {
+        if (o.name === taskHeader.innerText) {
           taskHeader.remove();
           removeTasks();
         }
@@ -253,7 +253,7 @@ function displayDOM() {
   const setTaskHeader = (projectName) => {
     let newTaskHeader = document.createElement('h2');
     newTaskHeader.className = 'tasks-header';
-    newTaskHeader.innerHTML = projectName;
+    newTaskHeader.innerText = projectName;
     taskHead.prepend(newTaskHeader);
   }
 
