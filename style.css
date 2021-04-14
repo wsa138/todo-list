@@ -437,6 +437,10 @@ input {
     display: inline;
 }
 
+.urgent {
+    background-color: orange;
+}
+
 
 @keyframes finished {
     from {
