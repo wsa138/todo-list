@@ -73,8 +73,8 @@ li {
 #addProject {
     cursor: pointer;
     text-align: center;
-    background-color: white;
-    color: #b00000;
+    background-color: #b00000;
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 2.5rem;
@@ -84,8 +84,8 @@ li {
 }
 
 #addProject:hover {
-    background-color: #b00000;
-    color: white;
+    background-color: white;
+    color: #b00000;
     text-shadow: 1px 1px grey;
 }
 
@@ -299,18 +299,22 @@ input {
 
 #addTaskBtn {
     font-size: 1.5rem;
-    color: rgb(15, 15, 15);
-    border: solid black;
+    background-color: #b00000;
+    color: white;
+    border: solid 2px #b00000;
     box-sizing: border-box;
+    padding-top: .25rem;
     height: 2.5rem;
     margin: .5rem .25rem .25rem .25rem;
     cursor: pointer;
     text-align: center;
-    border-radius: 3%;
+    border-radius: 2rem;
+    transition: color .25s, background-color .25s;
 }
 
 #addTaskBtn:hover {
-    background-color: rgb(241, 241, 241);
+    background-color: white;
+    color: #b00000;
 }
 
 .task {
@@ -341,16 +345,29 @@ input {
 
 .task-date {
     grid-area: date;
+    font-weight: bold;
 }
 
 .task-time {
     grid-area: time;
     text-align: center;;
+    font-weight: bold;
 }
 
 .task-notes-btn {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: auto;
     grid-area: note-btn;
-    
+    color: #b00000;
+    background-color: white;
+    border-color: #b00000;
+    border-radius: 1rem;
+    width: 50%;
+}
+
+.task-notes-btn:hover {
+    box-shadow: 2px 2px #b00000;
 }
 
 .task-notes {
