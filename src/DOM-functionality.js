@@ -84,6 +84,10 @@ function displayDOM() {
     if (!checkLength(taskName.value)) {
       return;
     };
+    if (taskDate.value === '') {
+      alert('Please add a date')
+      return;
+    }
     let currentProject = document.querySelector('.tasks-header').innerText;
     if (checkExistingTask(taskName.value, currentProject)) {
       return;
