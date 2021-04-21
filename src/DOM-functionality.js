@@ -323,7 +323,8 @@ function displayDOM() {
   // Check if task date is same as todays date
   const checkDates = (taskParent) => {
     let taskList = Array.from(taskParent.childNodes);
-    let today = format(new Date(), 'yyyy-MM-dd');
+    let today = format(new Date(), 'MM/dd/yyyy');
+    console.log(today);
     taskList.forEach((task) => {
       if (task.childNodes[1].textContent === today) {
         task.classList.toggle('urgent');
