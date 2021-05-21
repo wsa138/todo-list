@@ -324,7 +324,6 @@ function displayDOM() {
   const checkDates = (taskParent) => {
     let taskList = Array.from(taskParent.childNodes);
     let today = format(new Date(), 'MM/dd/yyyy');
-    console.log(today);
     taskList.forEach((task) => {
       if (task.childNodes[1].textContent === today) {
         task.classList.toggle('urgent');
