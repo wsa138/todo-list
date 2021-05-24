@@ -1,4 +1,3 @@
-
-import { displayDOM } from './DOM-functionality'
+import { displayDOM } from './DOM-functionality';
 
 displayDOM();
